@@ -53,7 +53,7 @@
 
                 {{-- LOGO --}}
                 <div class="flex items-center space-x-2 mb-8">
-                    <img src="/images//logo-hitam.png" class="w-10 h-10">
+                    <img src="{{ asset('images/logo-hitam.png') }}" class="w-10 h-10">
                     <div>
                         <h1 class="font-bold">SolusiBersama.id</h1>
                         {{-- <p class="text-xs text-gray-500">Dashboard</p> --}}

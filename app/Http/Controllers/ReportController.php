@@ -112,7 +112,7 @@ class ReportController extends Controller
         ========================= */
 
         $serviceSummary = $payments
-            ->groupBy(fn ($p) => $p->order->layanan)
+            ->groupBy(fn ($p) => $p->order?->layanan ?? 'Lainnya')
             ->map(fn ($row, $layanan) => [
                 'layanan' => $layanan,
                 'total'   => (int) $row->sum('amount'),
@@ -125,10 +125,10 @@ class ReportController extends Controller
         ========================= */
 
         $topClients = $payments
-            ->groupBy(fn ($p) => $p->order->email)
+            ->groupBy(fn ($p) => $p->order?->email ?? '-')
             ->map(function ($row) {
                 return [
-                    'nama'  => $row->first()->order->nama,
+                    'nama'  => $row->first()->order?->nama ?? '-',
                     'total' => (int) $row->sum('amount'),
                 ];
             })

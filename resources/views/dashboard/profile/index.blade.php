@@ -133,7 +133,7 @@
                     ✏️ Edit Profil
                 </a>
 
-                <a href="{{ route('password.request') }}"
+                <a href="{{ route('dashboard.profile.password') }}"
                    class="inline-flex justify-center items-center px-6 py-2.5 rounded-lg
                           bg-gray-100 text-gray-700 font-semibold hover:bg-gray-200">
                     🔒 Ubah Password

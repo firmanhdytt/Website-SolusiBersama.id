@@ -55,7 +55,7 @@
                 <div>
                     <p class="text-sm text-gray-500 mb-1">Deadline</p>
                     <p class="font-semibold">
-                        {{ \Carbon\Carbon::parse($order->deadline)->translatedFormat('d F Y') }}
+                        {{ $order->deadline ? \Carbon\Carbon::parse($order->deadline)->translatedFormat('d F Y') : '-' }}
                     </p>
                 </div>
             </div>

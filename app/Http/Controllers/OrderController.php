@@ -86,4 +86,43 @@ class OrderController extends Controller
         ]);
     }
 
+    /* =====================================================
+       UPDATE STATUS PEMBAYARAN ORDER (AJAX)
+    ===================================================== */
+    public function updatePayment(Request $request, Order $order)
+    {
+        $request->validate([
+            'status_pembayaran' => 'required|in:belum,dp,lunas',
+        ]);
+
+        $order->update([
+            'status_pembayaran' => $request->status_pembayaran,
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Status pembayaran berhasil diperbarui',
+            'status_pembayaran' => ucfirst($order->status_pembayaran),
+        ]);
+    }
+
+    /* =====================================================
+       UPDATE DEADLINE ORDER (AJAX)
+    ===================================================== */
+    public function updateDeadline(Request $request, Order $order)
+    {
+        $request->validate([
+            'deadline' => 'required|date',
+        ]);
+
+        $order->update([
+            'deadline' => $request->deadline,
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Tenggat waktu berhasil diperbarui',
+            'deadline' => \Carbon\Carbon::parse($order->deadline)->translatedFormat('d F Y'),
+        ]);
+    }
 }

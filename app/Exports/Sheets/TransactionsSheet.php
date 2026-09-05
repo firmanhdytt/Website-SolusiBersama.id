@@ -57,10 +57,10 @@ class TransactionsSheet implements
     {
         return [
             Carbon::parse($p->paid_at)->format('d/m/Y'),
-            $p->order->nama,
-            $p->order->email,
-            $p->order->layanan,
-            strtoupper($p->method),
+            $p->order?->nama ?? '-',
+            $p->order?->email ?? '-',
+            $p->order?->layanan ?? '-',
+            strtoupper($p->method ?? ''),
             (int) $p->amount,
         ];
     }
