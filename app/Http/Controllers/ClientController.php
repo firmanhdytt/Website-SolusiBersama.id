@@ -2,20 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
+
 class ClientController extends Controller
 {
     public function index()
     {
-        $clients = \DB::table('orders')
+        $clients = DB::table('orders')
             ->select(
                 'email',
-                \DB::raw('MAX(nama) as nama'),
-                \DB::raw('MAX(telepon) as telepon'),
-                \DB::raw('COUNT(*) as total_orders'),
-                \DB::raw("SUM(status IN ('pending','proses')) as active_orders"),
-                \DB::raw('MIN(deadline) as nearest_deadline')
+                DB::raw('MAX(nama) as nama'),
+                DB::raw('MAX(telepon) as telepon'),
+                DB::raw('COUNT(*) as total_orders'),
+                DB::raw("SUM(CASE WHEN status IN ('pending', 'proses') THEN 1 ELSE 0 END) as active_orders"),
+                DB::raw('MIN(deadline) as nearest_deadline')
             )
-            ->groupBy('email') // ⬅️ KUNCI UTAMA (ANTI DOBEL)
+            ->groupBy('email')
             ->orderBy('nearest_deadline')
             ->get();
 
@@ -24,7 +26,7 @@ class ClientController extends Controller
 
     public function show($email)
     {
-        $orders = \DB::table('orders')
+        $orders = DB::table('orders')
             ->where('email', $email)
             ->orderByDesc('created_at')
             ->get();

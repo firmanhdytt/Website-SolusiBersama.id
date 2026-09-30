@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'SolusiBersama.id - Solusi Digital Terpercaya')
+@section('title', 'SolusiBersama.com - Solusi Digital Terpercaya')
 
 @section('content')
 <!-- Header -->
@@ -15,7 +15,7 @@
           <img src="/images/logo-putih.png" alt="Idea Icon" class="w-10 h-10 ">
         </div>
         <h2 class="text-white text-lg font-bold tracking-tight">
-          SolusiBersama<span class="text-neutral-400">.id</span>
+          SolusiBersama<span class="text-neutral-400">.com</span>
         </h2>
       </div>
 
@@ -283,7 +283,7 @@
     <!-- HEADER -->
     <div class="text-center max-w-3xl mx-auto mb-20">
       <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">
-        Tentang <span class="text-neutral-400">SolusiBersama.id</span>
+        Tentang <span class="text-neutral-400">SolusiBersama.com</span>
       </h2>
       <p class="text-lg text-white/60 leading-relaxed">
         Kami adalah tim profesional yang berdedikasi untuk menghadirkan solusi digital
@@ -645,7 +645,7 @@
                 Email
               </span>
               <p class="text-white text-lg font-medium">
-                info@solusibersama.id
+                info@solusibersama.com
               </p>
             </div>
           </div>
@@ -771,7 +771,7 @@
       <!-- BRAND -->
       <div class="space-y-4">
         <h3 class="text-xl font-bold text-white tracking-tight">
-          SolusiBersama<span class="text-neutral-400">.id</span>
+          SolusiBersama<span class="text-neutral-400">.com</span>
         </h3>
         <p class="text-white/60 leading-relaxed">
           Solusi digital terbaik untuk bisnis Anda. Kami membantu bisnis Anda berkembang
@@ -816,11 +816,9 @@
       <div>
         <h4 class="text-white font-semibold mb-6">Tautan</h4>
         <ul class="space-y-3 text-white/60">
-          <li><a href="{{ url('/') }}" class="hover:text-white transition">Beranda</a></li>
+          <li><a href="#" class="hover:text-white transition">Beranda</a></li>
           <li><a href="#about" class="hover:text-white transition">Tentang Kami</a></li>
           <li><a href="#services" class="hover:text-white transition">Layanan</a></li>
-          <li><a href="{{ url('/portfolio') }}" class="hover:text-white transition">Portfolio</a></li>
-          <li><a href="{{ url('/blog') }}" class="hover:text-white transition">Blog</a></li>
           <li><a href="#contact" class="hover:text-white transition">Kontak</a></li>
         </ul>
       </div>
@@ -844,8 +842,8 @@
 
           <li class="flex items-start gap-3">
             <span class="material-symbols-outlined text-white/40 mt-1">mail</span>
-            <a href="mailto:info@solusibersama.id" class="hover:text-white transition">
-              info@solusibersama.id
+            <a href="mailto:info@solusibersama.com" class="hover:text-white transition">
+              info@solusibersama.com
             </a>
           </li>
 
@@ -855,7 +853,7 @@
 
     <!-- BOTTOM -->
     <div class="border-t border-white/10 pt-6 text-center text-white/40 text-sm">
-      © {{ date('Y') }} <span class="text-white">SolusiBersama.id</span>. Hak Cipta Dilindungi.
+      © {{ date('Y') }} <span class="text-white">SolusiBersama.com</span>. Hak Cipta Dilindungi.
     </div>
 
   </div>

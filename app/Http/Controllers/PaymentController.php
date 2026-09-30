@@ -48,7 +48,7 @@ class PaymentController extends Controller
         $validator = Validator::make($request->all(), [
             'method' => 'required|in:transfer,cash,qris,ewallet',
             'amount' => 'required|numeric|min:1',
-            'proof'  => 'nullable|image|max:2048',
+            'proof'  => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
         if ($validator->fails()) {
@@ -71,15 +71,16 @@ class PaymentController extends Controller
         // UPLOAD BUKTI
         $filename = null;
         if ($request->hasFile('proof')) {
-            $filename = time() . '_' . $request->proof->getClientOriginalName();
-            $request->proof->move(public_path('uploads/payments'), $filename);
+            $file = $request->file('proof');
+            $filename = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads/payments'), $filename);
         }
 
         // SIMPAN PAYMENT
         $payment = Payment::create([
             'order_id' => $order->id,
             'method'   => $request->input('method'),
-            'amount'   => $request->input('amount'),
+            'amount'   => (int) $request->input('amount'),
             'proof'    => $filename,
             'paid_at'  => now(),
         ]);
@@ -115,14 +116,14 @@ class PaymentController extends Controller
 
     /**
      * ===============================
-     * EXPORT ALL PAYMENTS
+     * EXPORT ALL PAYMENTS (REKAP ORDER)
      * ===============================
      */
     public function export()
     {
-        $payments = Payment::with('order')->latest()->get();
+        $orders = Order::with('payments')->latest()->get();
 
-        $pdf = Pdf::loadView('dashboard.payments.export', compact('payments'))
+        $pdf = Pdf::loadView('dashboard.payments.export', compact('orders'))
             ->setPaper('A4', 'landscape');
 
         return $pdf->download(

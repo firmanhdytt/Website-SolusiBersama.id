@@ -157,26 +157,19 @@ document.querySelectorAll('.order-btn').forEach(btn => {
 
         html += `</div>`;
         document.getElementById('modal-content').innerHTML = html;
-        // =========================================================
-        // KLIK PAKET → AUTO ISI ORDER FORM
-        // =========================================================
         document.querySelectorAll('.package-card').forEach(card => {
             card.addEventListener('click', () => {
                 const packageName = card.dataset.package;
                 const price = card.dataset.price;
 
-                // isi otomatis field kebutuhan
                 document.getElementById('order-requirements').value =
                     `Paket: ${packageName}\nHarga: ${price}`;
+                document.getElementById('order-budget').value = price;
 
-                // buka form order
                 document.getElementById('service-modal').classList.add('hidden');
                 document.getElementById('order-form-modal').classList.remove('hidden');
             });
         });
-        document.getElementById('order-requirements').value = '';
-        document.getElementById('order-budget').value = '';
-
 
         document.getElementById('service-modal').classList.remove('hidden');
 
@@ -245,7 +238,7 @@ document.getElementById('order-whatsapp-btn')?.addEventListener('click', () => {
         return alert("Mohon lengkapi semua field!");
 
     const msg = `
-Halo, saya ingin memesan layanan dari SolusiBersama.id:
+Halo, saya ingin memesan layanan dari SolusiBersama.com:
 
 Nama: ${name}
 Email: ${email}
@@ -362,7 +355,7 @@ document.getElementById('whatsapp-btn')?.addEventListener('click', () => {
     const WA = "+6281374514952";
 
     const message = `
-Halo, saya ingin menanyakan layanan SolusiBersama.id
+Halo, saya ingin menanyakan layanan SolusiBersama.com
 Apakah saya bisa dibantu?
     `;
 

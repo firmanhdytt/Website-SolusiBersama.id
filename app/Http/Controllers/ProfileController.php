@@ -8,11 +8,6 @@ use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
     {
         return view('dashboard.profile.index');
@@ -28,21 +23,22 @@ class ProfileController extends Controller
         $user = Auth::user();
 
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'photo' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'name'  => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:users,email,' . $user->id,
+            'photo' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
         $user->name = $request->name;
         $user->email = $request->email;
 
         if ($request->hasFile('photo')) {
-            if ($user->photo && file_exists(public_path('images/profile/'.$user->photo))) {
-                unlink(public_path('images/profile/'.$user->photo));
+            // Hapus foto lama jika ada dan bukan default
+            if ($user->photo && file_exists(public_path('images/profile/' . $user->photo))) {
+                @unlink(public_path('images/profile/' . $user->photo));
             }
 
             $file = $request->file('photo');
-            $filename = 'profile_'.time().'.'.$file->getClientOriginalExtension();
+            $filename = 'profile_' . time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('images/profile'), $filename);
 
             $user->photo = $filename;

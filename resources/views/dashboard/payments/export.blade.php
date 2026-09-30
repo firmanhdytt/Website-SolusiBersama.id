@@ -147,9 +147,8 @@
         </thead>
 
         <tbody>
-            @foreach($payments as $i => $payment)
+            @foreach($orders as $i => $order)
                 @php
-                    $order = $payment->order;
                     $paid = $order->totalPaid();
                     $remaining = $order->remainingPayment();
                     $status = $order->status_pembayaran;

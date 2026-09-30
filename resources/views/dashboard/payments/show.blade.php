@@ -1,259 +1,215 @@
 @extends('layouts.dashboard')
-@section('title', 'Detail Pembayaran')
+@section('title', 'Detail & Catat Pembayaran')
 
 @section('content')
 
-    @php
-        $totalPaid = $order->totalPaid();
-        $remaining = $order->remainingPayment();
-        $isLunas = $order->paymentStatus() === 'lunas';
-    @endphp
+@php
+    $totalPaid = $order->totalPaid();
+    $remaining = $order->remainingPayment();
+    $isLunas = $order->paymentStatus() === 'lunas';
+    $percent = $order->budget > 0 ? min(100, round(($totalPaid / $order->budget) * 100)) : 0;
+@endphp
 
-    {{-- ================= HEADER ================= --}}
-    <div class="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+<div class="max-w-5xl mx-auto space-y-8" x-data="{ proofModalOpen: false, currentProofUrl: '' }">
+
+    <!-- HEADER BAR -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-            <h2 class="text-2xl font-bold mb-1">Detail Pembayaran</h2>
-            <p class="text-gray-500">
-                Pembayaran untuk <span class="font-medium">{{ $order->nama }}</span>
-            </p>
+            <h2 class="text-2xl font-extrabold text-slate-900 tracking-tight">Detail Pembayaran Klien</h2>
+            <p class="text-xs text-slate-500 mt-1">Order #ORD-{{ str_pad($order->id, 4, '0', STR_PAD_LEFT) }} — <strong class="text-slate-800">{{ $order->nama }}</strong></p>
         </div>
 
-        <a href="{{ route('payments.export.detail', $order->id) }}" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg
-                              bg-green-600 text-white text-sm font-semibold hover:bg-green-700">
-            ⬇ Export PDF
-        </a>
+        <div class="flex items-center gap-3">
+            <a href="{{ route('payments.export.detail', $order->id) }}" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-md transition">
+                <span class="material-symbols-outlined text-[18px]">download</span>
+                <span>Export PDF Kwitansi</span>
+            </a>
+            <a href="{{ route('payments.index') }}" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-slate-200 bg-white text-slate-700 font-bold text-xs hover:bg-slate-50 transition">
+                <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+                <span>Kembali</span>
+            </a>
+        </div>
     </div>
 
-    {{-- ================= SUMMARY ================= --}}
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-
-        <div class="bg-white rounded-xl shadow p-4">
-            <p class="text-xs text-gray-500">Total Tagihan</p>
-            <p id="totalTagihan" class="text-xl font-bold">
-                Rp {{ number_format($order->budget, 0, ',', '.') }}
-            </p>
+    <!-- PAYMENT PROGRESS BAR CARD -->
+    <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm space-y-4">
+        <div class="flex items-center justify-between">
+            <div>
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Persentase Pelunasan</span>
+                <h3 class="text-lg font-extrabold text-slate-900 mt-0.5">{{ $percent }}% Terbayar</h3>
+            </div>
+            <span class="px-3 py-1 rounded-full text-xs font-bold uppercase {{ $isLunas ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700' }}">
+                {{ ucfirst($order->status_pembayaran) }}
+            </span>
         </div>
 
-        <div class="bg-white rounded-xl shadow p-4">
-            <p class="text-xs text-gray-500">Sudah Dibayar</p>
-            <p id="totalPaid" class="text-xl font-bold text-green-600">
-                Rp {{ number_format($totalPaid, 0, ',', '.') }}
-            </p>
+        <!-- PROGRESS BAR METRICS -->
+        <div class="w-full bg-slate-100 rounded-full h-3.5 overflow-hidden">
+            <div class="h-full bg-gradient-to-r from-brand-600 to-emerald-500 rounded-full transition-all duration-500" style="width: {{ $percent }}%"></div>
         </div>
 
-        <div class="bg-white rounded-xl shadow p-4">
-            <p class="text-xs text-gray-500">Sisa Pembayaran</p>
-            <p id="remainingPayment" class="text-xl font-bold text-red-600">
-                Rp {{ number_format($remaining, 0, ',', '.') }}
-            </p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs pt-2">
+            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-100">
+                <p class="text-slate-400 font-bold uppercase text-[10px]">Total Tagihan</p>
+                <p class="text-base font-extrabold text-slate-900 mt-1">Rp {{ number_format($order->budget, 0, ',', '.') }}</p>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-100">
+                <p class="text-slate-400 font-bold uppercase text-[10px]">Total Dibayar</p>
+                <p id="totalPaid" class="text-base font-extrabold text-emerald-600 mt-1">Rp {{ number_format($totalPaid, 0, ',', '.') }}</p>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-100">
+                <p class="text-slate-400 font-bold uppercase text-[10px]">Sisa Tagihan</p>
+                <p id="remainingPayment" class="text-base font-extrabold text-rose-600 mt-1">Rp {{ number_format($remaining, 0, ',', '.') }}</p>
+            </div>
         </div>
-
     </div>
 
-    {{-- ================= FORM PEMBAYARAN ================= --}}
-    <div class="bg-white rounded-xl shadow p-6 mb-8">
-
-        <h3 class="font-semibold text-lg mb-4">Tambah Pembayaran</h3>
+    <!-- FORM CATAT PEMBAYARAN -->
+    <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm space-y-6">
+        <h3 class="font-bold text-base text-slate-900 border-b border-slate-100 pb-3">Form Catat Transaksi Pembayaran</h3>
 
         @if($isLunas)
-            <div class="p-4 bg-green-50 text-green-700 rounded-lg">
-                ✅ Pembayaran sudah <strong>LUNAS</strong>.
+            <div class="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold flex items-center gap-3">
+                <span class="material-symbols-outlined text-[24px]">verified</span>
+                <span>Tagihan untuk pesanan ini telah **LUNAS**. Tidak ada sisa pembayaran yang perlu diinputkan.</span>
             </div>
         @else
-            <form id="paymentForm" enctype="multipart/form-data">
+            <form id="paymentForm" enctype="multipart/form-data" class="space-y-5">
                 @csrf
-
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-
+                    
+                    <!-- METODE PEMBAYARAN -->
                     <div>
-                        <label class="block text-sm font-medium mb-1">Metode Pembayaran</label>
-                        <select name="method" required class="w-full border rounded-lg px-3 py-2.5">
+                        <label class="block text-xs font-bold text-slate-700 mb-1.5">Metode Pembayaran *</label>
+                        <select name="method" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-500">
                             <option value="">-- Pilih Metode --</option>
-                            <option value="transfer">Transfer</option>
-                            <option value="cash">Cash</option>
+                            <option value="transfer">Transfer Bank</option>
+                            <option value="cash">Tunai / Cash</option>
                             <option value="qris">QRIS</option>
-                            <option value="ewallet">E-Wallet</option>
+                            <option value="ewallet">E-Wallet (Gopay/Ovo/Dana)</option>
                         </select>
                     </div>
 
+                    <!-- NOMINAL -->
                     <div>
-                        <label class="block text-sm font-medium mb-1">Nominal</label>
+                        <label class="block text-xs font-bold text-slate-700 mb-1.5">Nominal Bayar (Rp) *</label>
                         <input type="number" name="amount" min="1" max="{{ $remaining }}" id="amountInput" required
-                            class="w-full border rounded-lg px-3 py-2.5"
-                            placeholder="Maks: {{ number_format($remaining, 0, ',', '.') }}">
-
+                               placeholder="Maksimal Rp {{ number_format($remaining, 0, ',', '.') }}"
+                               class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500">
                     </div>
 
+                    <!-- UPLOAD BUKTI -->
                     <div class="md:col-span-2">
-                        <label class="block text-sm font-medium mb-1">Bukti Pembayaran</label>
-                        <input type="file" name="proof" accept="image/*" class="w-full border rounded-lg px-3 py-2.5">
+                        <label class="block text-xs font-bold text-slate-700 mb-1.5">Upload Bukti Transfer / Nota (Opsional)</label>
+                        <input type="file" name="proof" accept="image/*"
+                               class="w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-brand-50 file:text-brand-700 hover:file:bg-brand-100">
                     </div>
-
-                    <div class="md:col-span-2">
-                        <button id="submitBtn" class="bg-green-600 text-white px-6 py-2.5 rounded-lg hover:bg-green-700">
-                            Simpan Pembayaran
-                        </button>
-                    </div>
-
                 </div>
+
+                <button id="submitBtn" type="submit" class="px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs shadow-md transition flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[18px]">save</span>
+                    <span>Simpan Transaksi Pembayaran</span>
+                </button>
             </form>
         @endif
     </div>
 
-    {{-- ================= HISTORI ================= --}}
-    <div class="bg-white rounded-xl shadow p-6">
-        <h3 class="font-semibold text-lg mb-4">Histori Pembayaran</h3>
+    <!-- HISTORI PEMBAYARAN -->
+    <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm space-y-4">
+        <h3 class="font-bold text-base text-slate-900 border-b border-slate-100 pb-3">Histori Transaksi Pembayaran</h3>
 
-        <div id="paymentHistory">
+        <div id="paymentHistory" class="space-y-3">
             @forelse($order->payments as $pay)
-                <div class="border rounded-lg p-4 mb-3 flex justify-between">
-                    <div>
-                        <p class="font-medium">
-                            Rp {{ number_format($pay->amount, 0, ',', '.') }}
-                        </p>
-                        <p class="text-sm text-gray-500">
-                            {{ strtoupper($pay->method) }} •
-                            {{ \Carbon\Carbon::parse($pay->paid_at)->translatedFormat('d F Y H:i') }}
-                        </p>
+                <div class="p-4 rounded-xl border border-slate-200/60 bg-slate-50/50 flex items-center justify-between text-xs">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 font-bold flex items-center justify-center">
+                            <span class="material-symbols-outlined text-[18px]">payments</span>
+                        </div>
+                        <div>
+                            <p class="font-bold text-slate-900 text-sm">Rp {{ number_format($pay->amount, 0, ',', '.') }}</p>
+                            <p class="text-slate-400 text-[11px] mt-0.5">
+                                {{ strtoupper($pay->method) }} • {{ \Carbon\Carbon::parse($pay->paid_at)->translatedFormat('d F Y H:i') }}
+                            </p>
+                        </div>
                     </div>
 
                     @if($pay->proof)
-                        <a href="{{ asset('uploads/payments/' . $pay->proof) }}" target="_blank" class="text-blue-600 text-sm">
-                            Lihat Bukti
-                        </a>
+                        <button @click="currentProofUrl = '{{ asset('uploads/payments/' . $pay->proof) }}'; proofModalOpen = true"
+                                class="px-3 py-1.5 rounded-lg bg-brand-50 text-brand-600 hover:bg-brand-100 font-bold text-xs transition flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[16px]">visibility</span>
+                            <span>Lihat Bukti</span>
+                        </button>
                     @endif
                 </div>
             @empty
-                <p class="text-center text-gray-400 py-6">
-                    Belum ada histori pembayaran
-                </p>
+                <div class="py-8 text-center text-slate-400">
+                    <span class="material-symbols-outlined text-[36px] block mb-1">receipt</span>
+                    <p class="text-xs">Belum ada transaksi pembayaran untuk pesanan ini</p>
+                </div>
             @endforelse
         </div>
     </div>
 
-    {{-- ================= NOTIFICATION ================= --}}
-    <div id="notifyOverlay" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40">
+    <!-- MODAL PREVIEW BUKTI TRANSFER -->
+    <div x-show="proofModalOpen" 
+         @click.away="proofModalOpen = false"
+         class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm" x-cloak>
+        <div class="bg-white rounded-2xl shadow-2xl p-6 max-w-lg w-full space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <h4 class="font-bold text-sm text-slate-900">Bukti Pembayaran Transaksi</h4>
+                <button @click="proofModalOpen = false" class="text-slate-400 hover:text-slate-700">&times;</button>
+            </div>
 
-        <div id="notifyBox" class="bg-white rounded-2xl shadow-2xl px-8 py-6
-                        text-center max-w-sm w-full
-                        scale-95 opacity-0 transition-all duration-200">
+            <div class="flex justify-center bg-slate-100 rounded-xl p-2 max-h-96 overflow-hidden">
+                <img :src="currentProofUrl" class="max-h-80 object-contain rounded-lg">
+            </div>
 
-            <div id="notifyIcon" class="text-4xl mb-3">✅</div>
-
-            <p id="notifyText" class="text-gray-800 font-medium">
-                Berhasil
-            </p>
+            <div class="flex justify-end">
+                <button @click="proofModalOpen = false" class="px-4 py-2 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs hover:bg-slate-200">Tutup</button>
+            </div>
         </div>
     </div>
 
+</div>
 
 @endsection
 
 @push('scripts')
-    <script>
-        const form = document.getElementById('paymentForm');
+<script>
+    const form = document.getElementById('paymentForm');
 
-        /* ===============================
-           CENTER NOTIFICATION
-        =============================== */
-        function showNotify(message, type = 'success') {
-            const overlay = document.getElementById('notifyOverlay');
-            const box = document.getElementById('notifyBox');
-            const text = document.getElementById('notifyText');
-            const icon = document.getElementById('notifyIcon');
+    if (form) {
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
 
-            text.innerText = message;
-            icon.innerText = type === 'success' ? '✅' : '❌';
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Menyimpan Transaksi...';
 
-            overlay.classList.remove('hidden');
-            overlay.classList.add('flex');
+            const formData = new FormData(form);
 
-            // animasi masuk
-            setTimeout(() => {
-                box.classList.remove('scale-95', 'opacity-0');
-                box.classList.add('scale-100', 'opacity-100');
-            }, 50);
+            try {
+                const res = await fetch("{{ route('payments.store', $order->id) }}", {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': "{{ csrf_token() }}",
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    body: formData
+                });
 
-            // auto close
-            setTimeout(() => {
-                box.classList.add('scale-95', 'opacity-0');
-                setTimeout(() => {
-                    overlay.classList.add('hidden');
-                    overlay.classList.remove('flex');
-                }, 200);
-            }, 2500);
-        }
+                const data = await res.json();
+                if (!data.success) throw data.message;
 
-        /* ===============================
-           SUBMIT PAYMENT (AJAX)
-        =============================== */
-        if (form) {
-            form.addEventListener('submit', async function (e) {
-                e.preventDefault();
+                // RELOAD HALAMAN AGAR METRIK TERCATAT RAPI
+                location.reload();
 
-                const submitBtn = document.getElementById('submitBtn');
-                submitBtn.disabled = true;
-                submitBtn.innerText = 'Menyimpan...';
-
-                const formData = new FormData(form);
-
-                try {
-                    const res = await fetch("{{ route('payments.store', $order->id) }}", {
-                        method: 'POST',
-                        headers: {
-                            'X-CSRF-TOKEN': "{{ csrf_token() }}",
-                            'X-Requested-With': 'XMLHttpRequest'
-                        },
-                        body: formData
-                    });
-
-                    const data = await res.json();
-                    if (!data.success) throw data.message;
-
-                    // UPDATE SUMMARY
-                    document.getElementById('totalPaid').innerText =
-                        'Rp ' + data.data.total_paid.toLocaleString('id-ID');
-
-                    document.getElementById('remainingPayment').innerText =
-                        'Rp ' + data.data.remaining.toLocaleString('id-ID');
-
-                    // TAMBAH HISTORI
-                    const history = document.getElementById('paymentHistory');
-                    history.insertAdjacentHTML('afterbegin', `
-                        <div class="border rounded-lg p-4 mb-3 flex justify-between">
-                            <div>
-                                <p class="font-medium">Rp ${data.data.payment.amount}</p>
-                                <p class="text-sm text-gray-500">
-                                    ${data.data.payment.method} • ${data.data.payment.date}
-                                </p>
-                            </div>
-                            ${data.data.payment.proof
-                            ? `<a href="${data.data.payment.proof}" target="_blank"
-                                     class="text-blue-600 text-sm">Lihat Bukti</a>`
-                            : ''}
-                        </div>
-                    `);
-
-                    form.reset();
-                    showNotify(data.message, 'success');
-
-                    // JIKA LUNAS → DISABLE FORM
-                    if (data.data.status === 'lunas') {
-                        form.innerHTML = `
-                            <div class="p-4 bg-green-50 text-green-700 rounded-lg">
-                                ✅ Pembayaran sudah <strong>LUNAS</strong>.
-                            </div>
-                        `;
-                    }
-
-                } catch (err) {
-                    showNotify(err, 'error');
-                } finally {
-                    submitBtn.disabled = false;
-                    submitBtn.innerText = 'Simpan Pembayaran';
-                }
-            });
-        }
-    </script>
-
+            } catch (err) {
+                alert(err);
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'Simpan Transaksi Pembayaran';
+            }
+        });
+    }
+</script>
 @endpush

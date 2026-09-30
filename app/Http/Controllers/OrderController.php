@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Mail\OrderMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
 
 class OrderController extends Controller
 {
@@ -14,7 +17,7 @@ class OrderController extends Controller
     {
         $validated = $request->validate([
             'order-name'         => 'required|string|max:255',
-            'order-email'        => 'required|email',
+            'order-email'        => 'required|email|max:255',
             'order-phone'        => 'required|string|max:30',
             'order-service'      => 'required|string|max:255',
             'order-requirements' => 'required|string',
@@ -22,17 +25,28 @@ class OrderController extends Controller
             'order-deadline'     => 'required|date',
         ]);
 
-        Order::create([
+        // Bersihkan string budget (hilangkan 'Rp', titik, koma, spasi)
+        $rawBudget = preg_replace('/[^0-9]/', '', $validated['order-budget']);
+        $budget = $rawBudget !== '' ? (int) $rawBudget : 0;
+
+        $order = Order::create([
             'nama'              => $validated['order-name'],
             'email'             => $validated['order-email'],
             'telepon'           => $validated['order-phone'],
             'layanan'           => $validated['order-service'],
             'pesan'             => $validated['order-requirements'],
-            'budget'            => (int) $validated['order-budget'],
+            'budget'            => $budget,
             'deadline'          => $validated['order-deadline'],
             'status'            => 'pending',
             'status_pembayaran' => 'belum',
         ]);
+
+        // Kirim email notifikasi ke admin
+        try {
+            Mail::to("firmanhidayat1780@gmail.com")->send(new OrderMail($order));
+        } catch (\Exception $e) {
+            Log::error("Email order gagal dikirim: " . $e->getMessage());
+        }
 
         return response()->json([
             'success' => true,

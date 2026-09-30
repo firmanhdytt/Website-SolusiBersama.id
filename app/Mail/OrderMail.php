@@ -19,7 +19,8 @@ class OrderMail extends Mailable
 
     public function build()
     {
-        return $this->subject("Order Baru dari " . $this->order->name)
+        $clientName = $this->order->nama ?? 'Klien';
+        return $this->subject("Order Baru dari " . $clientName)
             ->view('emails.order');
     }
 }

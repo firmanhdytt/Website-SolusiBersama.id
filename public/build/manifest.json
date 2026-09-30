@@ -1,0 +1,19 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-B-N2ym_l.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-CAiCLEjY.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/js/landing.js": {
+    "file": "assets/landing-DRnQjBf5.js",
+    "name": "landing",
+    "src": "resources/js/landing.js",
+    "isEntry": true
+  }
+}

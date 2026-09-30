@@ -24,7 +24,7 @@
             </h1>
 
             <p class="text-gray-600 mb-6">
-                Halaman ini hanya dapat diakses oleh Admin SolusiBersama.id.
+                Halaman ini hanya dapat diakses oleh Admin SolusiBersama.com.
             </p>
 
             <a href="{{ url('/') }}"

@@ -1,296 +1,226 @@
 @extends('layouts.dashboard')
-
-@section('title', 'Timeline Proyek')
+@section('title', 'Timeline & Kalender Proyek')
 
 @section('content')
 
-    {{-- ================= HEADER ================= --}}
-    <div class="mb-8 space-y-6">
+<div class="space-y-8" x-data="{ modalOpen: false, modalTitle: '', modalClient: '', modalDeadline: '', modalStatus: '', modalProgress: 0 }">
 
+    <!-- HEADER & METRICS BAR -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-            <h2 class="text-3xl font-bold mb-1">Timeline Proyek</h2>
-            <p class="text-gray-500">
-                Pantau deadline, progress, dan status pengerjaan proyek klien
-            </p>
+            <h2 class="text-2xl font-extrabold text-slate-900 tracking-tight">Timeline & Kalender Proyek</h2>
+            <p class="text-xs text-slate-500 mt-1">Jadwal tenggat waktu (deadline), progress pengerjaan, dan calendar pengerjaan proyek</p>
+        </div>
+    </div>
+
+    <!-- STATS CARDS -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm flex items-center justify-between">
+            <div>
+                <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Total Proyek</p>
+                <p class="text-2xl font-extrabold text-slate-900 mt-1">{{ $total }}</p>
+            </div>
+            <div class="w-10 h-10 rounded-xl bg-slate-100 text-slate-600 flex items-center justify-center">
+                <span class="material-symbols-outlined text-[20px]">calendar_view_month</span>
+            </div>
         </div>
 
-        {{-- ================= QUICK STATS (STATIC / NANTI BISA DINAMIS) ================= --}}
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-
-            <div class="bg-white p-4 rounded-xl shadow">
-                <p class="text-xs text-gray-500">Total Proyek</p>
-                <p class="text-2xl font-bold">{{ $total }}</p>
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm flex items-center justify-between">
+            <div>
+                <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Sedang Proses</p>
+                <p class="text-2xl font-extrabold text-sky-600 mt-1">{{ $ongoing }}</p>
             </div>
-
-            <div class="bg-white p-4 rounded-xl shadow">
-                <p class="text-xs text-gray-500">Proses</p>
-                <p class="text-2xl font-bold text-blue-600">
-                    {{ $ongoing }}
-                </p>
+            <div class="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center">
+                <span class="material-symbols-outlined text-[20px]">sync</span>
             </div>
+        </div>
 
-            <div class="bg-white p-4 rounded-xl shadow">
-                <p class="text-xs text-gray-500">Deadline Dekat</p>
-                <p class="text-2xl font-bold text-yellow-600">
-                    {{ $deadlineDekat }}
-                </p>
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm flex items-center justify-between">
+            <div>
+                <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Deadline Dekat</p>
+                <p class="text-2xl font-extrabold text-amber-600 mt-1">{{ $deadlineDekat }}</p>
             </div>
+            <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
+                <span class="material-symbols-outlined text-[20px]">alarm</span>
+            </div>
+        </div>
 
-            <div class="bg-white p-4 rounded-xl shadow">
-                <p class="text-xs text-gray-500">Selesai</p>
-                <p class="text-2xl font-bold text-green-600">
-                    {{ $done }}
-                </p>
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm flex items-center justify-between">
+            <div>
+                <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Selesai</p>
+                <p class="text-2xl font-extrabold text-emerald-600 mt-1">{{ $done }}</p>
+            </div>
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                <span class="material-symbols-outlined text-[20px]">task_alt</span>
             </div>
         </div>
     </div>
 
-    {{-- ================= CALENDAR CARD ================= --}}
-    <div class="bg-white rounded-xl shadow p-4">
-
-        {{-- FullCalendar CDN --}}
+    <!-- FULLCALENDAR BOARD -->
+    <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm space-y-4">
+        <!-- CDN FULLCALENDAR -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css">
         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
 
-        {{-- ================= CUSTOM STYLE ================= --}}
         <style>
-            /* ===== TODAY HIGHLIGHT ===== */
-            .fc .fc-day-today {
-                background-color: #eef2ff !important;
-                /* indigo-50 */
-                /* border: 2px solid #6366f1 !important; */
-                /* indigo-500 */
-            }
-
-            .fc .fc-day-today .fc-daygrid-day-number {
-                background: #6366f1;
-                color: white;
-                border-radius: 9999px;
-                padding: 4px 8px;
-                font-weight: 600;
-            }
-
-            /* ===== EVENT TEXT WRAP ===== */
-            .fc-daygrid-event {
-                white-space: normal !important;
-                align-items: flex-start !important;
-            }
-
-            .fc-daygrid-event .fc-event-title {
-                white-space: normal !important;
-                line-height: 1.3;
-                font-size: 12px;
-            }
+            .fc .fc-toolbar-title { font-size: 16px !important; font-weight: 800; color: #0f172a; }
+            .fc .fc-button-primary { background-color: #4f46e5 !important; border-color: #4f46e5 !important; font-size: 12px; font-weight: 700; border-radius: 10px !important; }
+            .fc .fc-day-today { background-color: #eef2ff !important; }
+            .fc-daygrid-event { border-radius: 8px !important; padding: 2px 4px !important; font-size: 11px !important; font-weight: 700; }
         </style>
 
         <div id="project-calendar"></div>
     </div>
 
-    {{-- ================= TIMELINE LIST ================= --}}
-    {{-- ================= TIMELINE LIST ================= --}}
-    <div class="mt-10">
+    <!-- DEADLINE MATRIX LIST -->
+    <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm space-y-4">
+        <h3 class="font-bold text-base text-slate-900 border-b border-slate-100 pb-3">Daftar Urutan Deadline Proyek</h3>
 
-        <h3 class="text-lg font-semibold mb-4">
-            Deadline Terdekat
-        </h3>
-
-        <div class="bg-white rounded-xl shadow divide-y">
-
+        <div class="divide-y divide-slate-100">
             @forelse ($timelineList as $item)
-
                 @php
                     $deadline = \Carbon\Carbon::parse($item->deadline);
-
                     $isLate = $deadline->isPast() && $item->status !== 'selesai';
-
                     $isNear = !$isLate && $deadline->diffInDays(now()) <= 3;
 
                     $statusClass = match ($item->status) {
-                        'pending' => 'bg-yellow-100 text-yellow-700',
-                        'proses' => 'bg-blue-100 text-blue-700',
-                        'selesai' => 'bg-green-100 text-green-700',
-                        default => 'bg-gray-100 text-gray-700',
+                        'pending' => 'bg-amber-50 text-amber-700 border-amber-200',
+                        'proses' => 'bg-sky-50 text-sky-700 border-sky-200',
+                        'selesai' => 'bg-emerald-50 text-emerald-700 border-emerald-200',
+                        default => 'bg-slate-50 text-slate-700 border-slate-200',
                     };
                 @endphp
 
-                <div class="p-4 md:p-5 grid grid-cols-1 md:grid-cols-12 gap-4 items-center hover:bg-gray-50 transition">
-
-                    {{-- PROYEK + KLIEN --}}
-                    <div class="md:col-span-5">
-                        <p class="font-semibold text-gray-800 leading-tight">
-                            {{ $item->layanan ?? $item->service ?? 'Proyek' }}
-                        </p>
-                        <p class="text-sm text-gray-500 mt-1">
-                            {{ $item->nama ?? $item->name ?? '-' }}
-                        </p>
+                <div class="py-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-xs {{ $isLate ? 'bg-rose-100 text-rose-700' : ($isNear ? 'bg-amber-100 text-amber-700' : 'bg-brand-50 text-brand-700') }}">
+                            <span class="material-symbols-outlined text-[20px]">{{ $isLate ? 'warning' : 'calendar_today' }}</span>
+                        </div>
+                        <div>
+                            <p class="font-bold text-slate-900 text-sm">{{ $item->layanan }}</p>
+                            <p class="text-xs text-slate-500">Klien: {{ $item->nama }} ({{ $item->email }})</p>
+                        </div>
                     </div>
 
-                    {{-- DEADLINE --}}
-                    <div class="md:col-span-4 text-sm">
-                        <span class="text-gray-500">Deadline</span><br>
-                        <span class="font-medium
-                                {{ $isLate ? 'text-red-600' : ($isNear ? 'text-yellow-600' : 'text-gray-800') }}">
-                            {{ $deadline->translatedFormat('d F Y') }}
-                        </span>
-                    </div>
+                    <div class="flex items-center gap-6">
+                        <div class="text-xs text-right">
+                            <span class="text-slate-400 block text-[10px]">Tenggat Waktu</span>
+                            <span class="font-bold {{ $isLate ? 'text-rose-600' : ($isNear ? 'text-amber-600' : 'text-slate-800') }}">
+                                {{ $deadline->translatedFormat('d F Y') }}
+                            </span>
+                        </div>
 
-                    {{-- STATUS + PROGRESS --}}
-                    <div class="md:col-span-3 flex items-center justify-between md:justify-end gap-4">
-
-                        {{-- STATUS --}}
-                        <span class="px-3 py-1 rounded-full text-xs font-medium whitespace-nowrap {{ $statusClass }}">
+                        <span class="px-3 py-1 rounded-full border text-xs font-bold {{ $statusClass }}">
                             {{ ucfirst($item->status) }}
                         </span>
 
+                        <a href="{{ route('orders.show', $item->id) }}" class="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs transition">
+                            Detail
+                        </a>
                     </div>
-
                 </div>
-
             @empty
-                <div class="p-6 text-center text-gray-400">
-                    Belum ada proyek dengan deadline
+                <div class="py-8 text-center text-slate-400">
+                    <span class="material-symbols-outlined text-[36px] block mb-1">event_available</span>
+                    <p class="text-xs">Belum ada proyek dengan jadwal deadline</p>
                 </div>
             @endforelse
-
-        </div>
-
-    </div>
-
-
-
-    {{-- ================= MODAL DETAIL ================= --}}
-    <div id="projectModal" class="fixed inset-0 bg-black/40 hidden items-center justify-center z-50">
-
-        <div class="bg-white rounded-2xl shadow-xl w-full max-w-lg p-6">
-
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-lg font-semibold text-gray-800">Detail Proyek</h3>
-                <button onclick="closeModal()" class="text-gray-400 hover:text-gray-700 text-2xl">
-                    &times;
-                </button>
-            </div>
-
-            <div class="space-y-4 text-sm text-gray-600">
-                <div>
-                    <p class="text-gray-500">Nama Proyek</p>
-                    <p id="modalProjectName" class="font-semibold text-gray-800"></p>
-                </div>
-
-                <div>
-                    <p class="text-gray-500">Klien</p>
-                    <p id="modalClientName"></p>
-                </div>
-
-                <div class="flex gap-6">
-                    <div>
-                        <p class="text-gray-500">Mulai</p>
-                        <p id="modalStartDate"></p>
-                    </div>
-                    <div>
-                        <p class="text-gray-500">Deadline</p>
-                        <p id="modalDeadline" class="text-yellow-600 font-medium"></p>
-                    </div>
-                </div>
-
-                <div>
-                    <p class="text-gray-500">Progress</p>
-                    <div class="w-full bg-gray-200 rounded-full h-2">
-                        <div id="modalProgressBar" class="bg-blue-500 h-2 rounded-full" style="width:0%"></div>
-                    </div>
-                    <p id="modalProgressText" class="text-xs mt-1"></p>
-                </div>
-
-                <div>
-                    <p class="text-gray-500">Status</p>
-                    <span id="modalStatus" class="inline-flex px-3 py-1 rounded-full text-xs font-medium"></span>
-                </div>
-            </div>
-
-            <div class="mt-6 flex justify-end">
-                <button onclick="closeModal()" class="px-4 py-2 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200">
-                    Tutup
-                </button>
-            </div>
-
         </div>
     </div>
 
-    {{-- ================= SCRIPT ================= --}}
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
+    <!-- MODAL DETAIL EVENT KALENDER -->
+    <div x-show="modalOpen" 
+         @click.away="modalOpen = false"
+         class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm" x-cloak>
+        <div class="bg-white rounded-2xl shadow-2xl p-6 max-w-md w-full space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <h4 class="font-bold text-sm text-slate-900">Detail Jadwal Proyek</h4>
+                <button @click="modalOpen = false" class="text-slate-400 hover:text-slate-700">&times;</button>
+            </div>
 
-            const calendarEl = document.getElementById('project-calendar');
+            <div class="space-y-3 text-xs">
+                <div>
+                    <span class="text-slate-400 font-bold block text-[10px]">NAMA PROYEK</span>
+                    <span x-text="modalTitle" class="font-bold text-sm text-slate-900"></span>
+                </div>
 
-            const calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                locale: 'id',
-                height: 'auto',
+                <div>
+                    <span class="text-slate-400 font-bold block text-[10px]">KLIEN PEMESAN</span>
+                    <span x-text="modalClient" class="font-semibold text-slate-800"></span>
+                </div>
 
-                dayMaxEvents: 3, // 👈 biar rapi
+                <div>
+                    <span class="text-slate-400 font-bold block text-[10px]">DEADLINE TARGET</span>
+                    <span x-text="modalDeadline" class="font-bold text-brand-600"></span>
+                </div>
 
-                headerToolbar: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: ''
-                },
+                <div>
+                    <span class="text-slate-400 font-bold block text-[10px] mb-1">ESTIMASI PROGRESS</span>
+                    <div class="w-full bg-slate-100 rounded-full h-2">
+                        <div class="bg-brand-600 h-2 rounded-full transition-all duration-300" :style="'width: ' + modalProgress + '%'"></div>
+                    </div>
+                </div>
 
-                // 🔥 DATA REAL DARI ORDERS
-                events: {
-                    url: "{{ route('calendar.events') }}",
-                    method: 'GET',
-                },
+                <div>
+                    <span class="text-slate-400 font-bold block text-[10px]">STATUS</span>
+                    <span x-text="modalStatus" class="inline-block px-2.5 py-0.5 rounded-full bg-brand-50 text-brand-700 font-bold text-[11px] uppercase"></span>
+                </div>
+            </div>
 
-                eventClick: function (info) {
-                    openModal(info.event);
-                }
-            });
+            <div class="flex justify-end pt-2 border-t border-slate-100">
+                <button @click="modalOpen = false" class="px-4 py-2 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs hover:bg-slate-200">Tutup</button>
+            </div>
+        </div>
+    </div>
 
-            calendar.render();
-        });
-
-        function openModal(event) {
-            document.getElementById('projectModal').classList.remove('hidden');
-            document.getElementById('projectModal').classList.add('flex');
-
-            document.getElementById('modalProjectName').innerText = event.title;
-            document.getElementById('modalClientName').innerText = event.extendedProps.client ?? '-';
-            document.getElementById('modalStartDate').innerText = formatDate(event.start);
-            document.getElementById('modalDeadline').innerText = formatDate(event.start);
-
-            const progress = event.extendedProps.progress ?? 0;
-            document.getElementById('modalProgressBar').style.width = progress + '%';
-            document.getElementById('modalProgressText').innerText = progress + '%';
-
-            const statusEl = document.getElementById('modalStatus');
-            statusEl.className = 'inline-flex px-3 py-1 rounded-full text-xs font-medium';
-
-            if (event.extendedProps.status === 'pending') {
-                statusEl.classList.add('bg-yellow-100', 'text-yellow-700');
-                statusEl.innerText = 'Pending';
-            } else if (event.extendedProps.status === 'proses') {
-                statusEl.classList.add('bg-blue-100', 'text-blue-700');
-                statusEl.innerText = 'Proses';
-            } else if (event.extendedProps.status === 'selesai') {
-                statusEl.classList.add('bg-green-100', 'text-green-700');
-                statusEl.innerText = 'Selesai';
-            } else {
-                statusEl.classList.add('bg-gray-100', 'text-gray-700');
-                statusEl.innerText = '-';
-            }
-        }
-
-        function closeModal() {
-            document.getElementById('projectModal').classList.add('hidden');
-            document.getElementById('projectModal').classList.remove('flex');
-        }
-
-        function formatDate(date) {
-            return new Intl.DateTimeFormat('id-ID', {
-                day: '2-digit',
-                month: 'long',
-                year: 'numeric'
-            }).format(date);
-        }
-    </script>
+</div>
 
 @endsection
+
+@push('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const calendarEl = document.getElementById('project-calendar');
+
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            locale: 'id',
+            height: 'auto',
+            dayMaxEvents: 3,
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: ''
+            },
+            events: {
+                url: "{{ route('calendar.events') }}",
+                method: 'GET',
+            },
+            eventClick: function (info) {
+                const event = info.event;
+                const root = document.querySelector('[x-data]');
+                
+                if (root && root.__x) {
+                    const data = root.__x.$data;
+                    data.modalTitle = event.title;
+                    data.modalClient = event.extendedProps.client ?? '-';
+                    data.modalDeadline = formatDate(event.start);
+                    data.modalProgress = event.extendedProps.progress ?? 0;
+                    data.modalStatus = event.extendedProps.status ?? '-';
+                    data.modalOpen = true;
+                }
+            }
+        });
+
+        calendar.render();
+    });
+
+    function formatDate(date) {
+        return new Intl.DateTimeFormat('id-ID', {
+            day: '2-digit',
+            month: 'long',
+            year: 'numeric'
+        }).format(date);
+    }
+</script>
+@endpush

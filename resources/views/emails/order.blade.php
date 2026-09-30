@@ -59,31 +59,31 @@
 <div class="email-container">
 
     <div class="header">
-        📩 Pesanan Baru – SolusiBersama.id
+        📩 Pesanan Baru – SolusiBersama.com
     </div>
 
-    <p>Anda menerima pesanan baru dari <strong>{{ $order->name }}</strong>.</p>
+    <p>Anda menerima pesanan baru dari <strong>{{ $order->nama }}</strong>.</p>
 
     <h3 class="section-title">Detail Pemesan</h3>
     <ul class="info-list">
-        <li><span class="label">Nama:</span> {{ $order->name }}</li>
+        <li><span class="label">Nama:</span> {{ $order->nama }}</li>
         <li><span class="label">Email:</span> {{ $order->email }}</li>
-        <li><span class="label">Telepon:</span> {{ $order->phone }}</li>
+        <li><span class="label">Telepon:</span> {{ $order->telepon }}</li>
     </ul>
 
     <h3 class="section-title">Detail Layanan</h3>
     <ul class="info-list">
-        <li><span class="label">Layanan:</span> {{ $order->service }}</li>
+        <li><span class="label">Layanan:</span> {{ $order->layanan }}</li>
         <li><span class="label">Budget:</span> Rp {{ number_format($order->budget, 0, ',', '.') }}</li>
-        <li><span class="label">Deadline:</span> {{ $order->deadline }}</li>
+        <li><span class="label">Deadline:</span> {{ \Carbon\Carbon::parse($order->deadline)->translatedFormat('d F Y') }}</li>
         <li>
             <span class="label">Kebutuhan:</span>
-            <br>{{ $order->requirements }}
+            <br>{{ $order->pesan }}
         </li>
     </ul>
 
     <div class="footer">
-        Email ini dikirim otomatis oleh sistem SolusiBersama.id.  
+        Email ini dikirim otomatis oleh sistem SolusiBersama.com.  
         Untuk detail lebih lanjut, silakan hubungi pemesan.
     </div>
 

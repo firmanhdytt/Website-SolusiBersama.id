@@ -62,7 +62,7 @@
         📩 Pesan Baru dari Pengunjung Website
     </div>
 
-    <p>Anda menerima pesan dari pengunjung website SolusiBersama.id.</p>
+    <p>Anda menerima pesan dari pengunjung website SolusiBersama.com.</p>
 
     <h3 class="section-title">Detail Pengirim</h3>
     <ul class="info-list">
@@ -78,7 +78,7 @@
     </p>
 
     <div class="footer">
-        Email ini dikirim otomatis oleh sistem SolusiBersama.id.  
+        Email ini dikirim otomatis oleh sistem SolusiBersama.com.  
         Silakan balas langsung ke email pengirim jika diperlukan.
     </div>
 

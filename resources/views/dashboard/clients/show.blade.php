@@ -1,113 +1,142 @@
 @extends('layouts.dashboard')
-
-@section('title', 'Detail Klien')
+@section('title', 'Detail Profil Klien')
 
 @section('content')
 
-{{-- ================= HEADER ================= --}}
-<div class="mb-8">
-    <h2 class="text-3xl font-bold mb-1">{{ $client->nama }}</h2>
-    <p class="text-gray-500">
-        {{ $client->email }} · {{ $client->telepon }}
-    </p>
-</div>
+<div class="max-w-5xl mx-auto space-y-8">
 
-{{-- ================= STAT ================= --}}
-<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+    <!-- HEADER BAR -->
+    <div class="flex items-center justify-between">
+        <div>
+            <h2 class="text-2xl font-extrabold text-slate-900 tracking-tight">Detail Profil Klien</h2>
+            <p class="text-xs text-slate-500 mt-1">Histori lengkap transaksi dan proyek pesanan klien</p>
+        </div>
 
-    <div class="bg-white p-4 rounded-xl shadow">
-        <p class="text-xs text-gray-500">Total Proyek</p>
-        <p class="text-2xl font-bold">{{ $client->total_orders }}</p>
+        <a href="{{ route('clients.index') }}" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-slate-200 bg-white text-slate-700 text-xs font-bold hover:bg-slate-50 transition">
+            <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+            <span>Kembali ke Direktori</span>
+        </a>
     </div>
 
-    <div class="bg-white p-4 rounded-xl shadow">
-        <p class="text-xs text-gray-500">Proyek Aktif</p>
-        <p class="text-2xl font-bold text-blue-600">
-            {{ $client->active_orders }}
-        </p>
+    <!-- CLIENT PROFILE OVERVIEW CARD -->
+    <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+            @php $initials = collect(explode(' ', $client->nama))->map(fn($w) => strtoupper(substr($w, 0, 1)))->take(2)->implode(''); @endphp
+            <div class="w-16 h-16 rounded-2xl bg-brand-100 text-brand-700 font-extrabold text-xl flex items-center justify-center shrink-0 border border-brand-200">
+                {{ $initials }}
+            </div>
+
+            <div>
+                <h3 class="text-xl font-extrabold text-slate-900 tracking-tight">{{ $client->nama }}</h3>
+                <p class="text-xs text-slate-400 mt-0.5">{{ $client->email }} · {{ $client->telepon ?? 'Tidak Ada Nomor Telepon' }}</p>
+                <div class="mt-2 flex items-center gap-2">
+                    <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                        {{ $client->active_orders > 0 ? 'Klien Aktif' : 'Klien Dormant' }}
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        @if($client->telepon)
+            @php $waNum = preg_replace('/[^0-9]/', '', $client->telepon); @endphp
+            <a href="https://wa.me/{{ $waNum }}" target="_blank"
+               class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-md transition flex items-center gap-2">
+                <span class="material-symbols-outlined text-[18px]">chat</span>
+                <span>Hubungi via WhatsApp</span>
+            </a>
+        @endif
     </div>
 
-    <div class="bg-white p-4 rounded-xl shadow">
-        <p class="text-xs text-gray-500">Selesai</p>
-        <p class="text-2xl font-bold text-green-600">
-            {{ $client->done_orders }}
-        </p>
+    <!-- CLIENT METRICS GRID -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm">
+            <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Total Proyek</p>
+            <p class="text-2xl font-extrabold text-slate-900 mt-1">{{ $client->total_orders }}</p>
+        </div>
+
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm">
+            <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Proyek Aktif</p>
+            <p class="text-2xl font-extrabold text-sky-600 mt-1">{{ $client->active_orders }}</p>
+        </div>
+
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm">
+            <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Proyek Selesai</p>
+            <p class="text-2xl font-extrabold text-emerald-600 mt-1">{{ $client->done_orders }}</p>
+        </div>
+
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm">
+            <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Batal</p>
+            <p class="text-2xl font-extrabold text-rose-600 mt-1">{{ $client->cancelled_orders }}</p>
+        </div>
     </div>
 
-    <div class="bg-white p-4 rounded-xl shadow">
-        <p class="text-xs text-gray-500">Batal</p>
-        <p class="text-2xl font-bold text-red-600">
-            {{ $client->cancelled_orders }}
-        </p>
-    </div>
+    <!-- CLIENT ORDER HISTORY TABLE -->
+    <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden space-y-4">
+        <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between">
+            <h3 class="font-bold text-base text-slate-900">Histori Pesanan Klien</h3>
+        </div>
 
-</div>
-
-{{-- ================= ORDER HISTORY ================= --}}
-<div class="bg-white rounded-xl shadow overflow-hidden">
-
-    <div class="px-6 py-4 border-b">
-        <h3 class="font-semibold text-lg">Histori Pesanan</h3>
-        <p class="text-sm text-gray-500">
-            Semua pesanan dari klien ini
-        </p>
-    </div>
-
-    <div class="overflow-x-auto">
-        <table class="w-full min-w-[800px]">
-            <thead class="bg-gray-50 text-sm text-gray-600">
-                <tr>
-                    <th class="px-6 py-4 text-left">Layanan</th>
-                    <th class="px-6 py-4 text-left">Deadline</th>
-                    <th class="px-6 py-4 text-left">Status</th>
-                    <th class="px-6 py-4 text-left">Pembayaran</th>
-                    <th class="px-6 py-4 text-left">Tanggal Order</th>
-                </tr>
-            </thead>
-
-            <tbody class="divide-y">
-                @foreach ($orders as $order)
-                    <tr class="hover:bg-gray-50">
-
-                        <td class="px-6 py-4 font-medium">
-                            {{ $order->layanan }}
-                        </td>
-
-                        <td class="px-6 py-4 text-sm">
-                            {{ \Carbon\Carbon::parse($order->deadline)->translatedFormat('d F Y') }}
-                        </td>
-
-                        <td class="px-6 py-4">
-                            <span class="px-3 py-1 rounded-full text-xs font-medium
-                                {{ $order->status === 'selesai'
-                                    ? 'bg-green-100 text-green-700'
-                                    : ($order->status === 'proses'
-                                        ? 'bg-blue-100 text-blue-700'
-                                        : 'bg-yellow-100 text-yellow-700') }}">
-                                {{ ucfirst($order->status) }}
-                            </span>
-                        </td>
-
-                        <td class="px-6 py-4">
-                            <span class="px-3 py-1 rounded-full text-xs font-medium
-                                {{ $order->status_pembayaran === 'lunas'
-                                    ? 'bg-green-100 text-green-700'
-                                    : ($order->status_pembayaran === 'dp'
-                                        ? 'bg-blue-100 text-blue-700'
-                                        : 'bg-yellow-100 text-yellow-700') }}">
-                                {{ ucfirst($order->status_pembayaran) }}
-                            </span>
-                        </td>
-
-                        <td class="px-6 py-4 text-sm text-gray-600">
-                            {{ \Carbon\Carbon::parse($order->created_at)->translatedFormat('d F Y') }}
-                        </td>
-
+        <div class="overflow-x-auto custom-scrollbar">
+            <table class="w-full text-left border-collapse">
+                <thead class="bg-slate-50/80 border-b border-slate-100 text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                    <tr>
+                        <th class="px-6 py-4">Layanan</th>
+                        <th class="px-6 py-4">Deadline Target</th>
+                        <th class="px-6 py-4">Status Proyek</th>
+                        <th class="px-6 py-4">Status Tagihan</th>
+                        <th class="px-6 py-4">Tanggal Order</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+
+                <tbody class="divide-y divide-slate-100 text-xs font-medium">
+                    @foreach ($orders as $order)
+                        @php
+                            $statusClass = match ($order->status) {
+                                'pending' => 'bg-amber-50 text-amber-700 border-amber-200',
+                                'proses' => 'bg-sky-50 text-sky-700 border-sky-200',
+                                'selesai' => 'bg-emerald-50 text-emerald-700 border-emerald-200',
+                                'batal' => 'bg-rose-50 text-rose-700 border-rose-200',
+                                default => 'bg-slate-50 text-slate-700 border-slate-200',
+                            };
+
+                            $payStatusClass = match ($order->status_pembayaran) {
+                                'lunas' => 'bg-emerald-50 text-emerald-700 border-emerald-200',
+                                'dp' => 'bg-sky-50 text-sky-700 border-sky-200',
+                                default => 'bg-amber-50 text-amber-700 border-amber-200',
+                            };
+                        @endphp
+
+                        <tr class="hover:bg-slate-50/80 transition">
+                            <td class="px-6 py-4 font-bold text-slate-900">
+                                {{ $order->layanan }}
+                            </td>
+
+                            <td class="px-6 py-4 text-slate-600">
+                                {{ $order->deadline ? \Carbon\Carbon::parse($order->deadline)->translatedFormat('d F Y') : '-' }}
+                            </td>
+
+                            <td class="px-6 py-4">
+                                <span class="px-2.5 py-0.5 rounded-full border text-[11px] font-bold {{ $statusClass }}">
+                                    {{ ucfirst($order->status) }}
+                                </span>
+                            </td>
+
+                            <td class="px-6 py-4">
+                                <span class="px-2.5 py-0.5 rounded-full border text-[11px] font-bold {{ $payStatusClass }}">
+                                    {{ ucfirst($order->status_pembayaran) }}
+                                </span>
+                            </td>
+
+                            <td class="px-6 py-4 text-slate-500">
+                                {{ \Carbon\Carbon::parse($order->created_at)->translatedFormat('d F Y') }}
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
+
 </div>
 
 @endsection
