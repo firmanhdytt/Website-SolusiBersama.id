@@ -32,14 +32,31 @@ class ProfileController extends Controller
         $user->email = $request->email;
 
         if ($request->hasFile('photo')) {
-            // Hapus foto lama jika ada dan bukan default
-            if ($user->photo && file_exists(public_path('images/profile/' . $user->photo))) {
-                @unlink(public_path('images/profile/' . $user->photo));
+            $primaryPath = public_path('images/profile');
+            $publicHtmlPath = base_path('../public_html/images/profile');
+
+            if (!file_exists($primaryPath)) {
+                @mkdir($primaryPath, 0755, true);
+            }
+            if (file_exists(base_path('../public_html')) && !file_exists($publicHtmlPath)) {
+                @mkdir($publicHtmlPath, 0755, true);
+            }
+
+            // Hapus foto lama jika ada
+            if ($user->photo) {
+                @unlink($primaryPath . '/' . $user->photo);
+                @unlink($publicHtmlPath . '/' . $user->photo);
             }
 
             $file = $request->file('photo');
-            $filename = 'profile_' . time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('images/profile'), $filename);
+            $ext = strtolower($file->getClientOriginalExtension());
+            $filename = 'profile_' . time() . '_' . uniqid() . '.' . $ext;
+            
+            $file->move($primaryPath, $filename);
+
+            if (file_exists(base_path('../public_html'))) {
+                @copy($primaryPath . '/' . $filename, $publicHtmlPath . '/' . $filename);
+            }
 
             $user->photo = $filename;
         }

@@ -34,9 +34,7 @@
                 <div class="md:col-span-1 flex flex-col items-center text-center p-6 bg-slate-50/80 rounded-2xl border border-slate-100">
                     <div class="relative group cursor-pointer" onclick="document.getElementById('photoInput').click()">
                         <img id="photoPreview"
-                             src="{{ auth()->user()->photo && file_exists(public_path('images/profile/' . auth()->user()->photo))
-                                 ? asset('images/profile/' . auth()->user()->photo)
-                                 : asset('images/profile/default.png') }}"
+                             src="{{ auth()->user()->photo ? asset('images/profile/' . auth()->user()->photo) : asset('images/profile/default.png') }}"
                              alt="Foto Profil"
                              class="w-36 h-36 rounded-2xl object-cover ring-4 ring-white shadow-md transition group-hover:opacity-80">
                         

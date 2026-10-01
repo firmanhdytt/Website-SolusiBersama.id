@@ -318,7 +318,7 @@
                 <!-- USER PROFILE DROPDOWN -->
                 <div class="relative" x-data="{ open: false }">
                     <button @click="open = !open" class="flex items-center gap-3 p-1.5 pr-3 rounded-xl border border-slate-200/80 hover:bg-slate-100 transition">
-                        <img src="{{ auth()->user()->photo && file_exists(public_path('images/profile/' . auth()->user()->photo)) ? asset('images/profile/' . auth()->user()->photo) : asset('images/profile/default.png') }}"
+                        <img src="{{ auth()->user()->photo ? asset('images/profile/' . auth()->user()->photo) : asset('images/profile/default.png') }}"
                              class="w-8 h-8 rounded-lg object-cover border border-slate-200">
                         <div class="hidden sm:block text-left">
                             <p class="text-xs font-bold text-slate-900 leading-tight">{{ auth()->user()->name }}</p>

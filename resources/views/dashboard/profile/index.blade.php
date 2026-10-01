@@ -33,9 +33,7 @@
                 <div class="flex flex-col sm:flex-row items-center sm:items-end gap-5 text-center sm:text-left">
                     <!-- Avatar -->
                     <div class="relative">
-                        <img src="{{ auth()->user()->photo && file_exists(public_path('images/profile/' . auth()->user()->photo))
-                                ? asset('images/profile/' . auth()->user()->photo)
-                                : asset('images/profile/default.png') }}"
+                        <img src="{{ auth()->user()->photo ? asset('images/profile/' . auth()->user()->photo) : asset('images/profile/default.png') }}"
                              alt="{{ auth()->user()->name }}"
                              class="w-28 h-28 rounded-2xl object-cover ring-4 ring-white shadow-lg bg-slate-100">
                         <span class="absolute bottom-1 right-1 w-4 h-4 bg-emerald-500 border-2 border-white rounded-full" title="Status: Aktif"></span>

@@ -91,27 +91,27 @@
 
 
 <!-- Hero Section -->
-<main class="relative pt-8">
-  <div class="relative min-h-[90vh] flex flex-col justify-center overflow-hidden">
+<main class="relative pt-20 md:pt-24 bg-background-dark">
+  <div class="relative min-h-[85vh] flex flex-col justify-between overflow-hidden">
 
     <!-- BACKGROUND -->
-    <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
       <!-- Glow -->
       <div
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle,rgba(255,255,255,0.08),transparent_70%)] opacity-60 blur-3xl">
+        class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[650px] aspect-square bg-[radial-gradient(circle,rgba(255,255,255,0.06),transparent_70%)] opacity-80 blur-3xl">
       </div>
 
-      <!-- Texture -->
-      <div class="absolute inset-0 opacity-20 bg-cover bg-center mix-blend-overlay"
-        style="background-image:url('https://lh3.googleusercontent.com/aida-public/AB6AXuBYJ99MLcXEfDcV94I5_fRJdNBcuNGTrEYHIyaGrO-BXB9eAGIxcoeX__r-UnE9A0Hz07Y3cL5G5LgSaSUxBjgZ4mIUFbpXryWRqdE2mI2p0BLNjenolJaILjsvJlQkJNh1_2ONabEM3VnSYWPJKnUIQ2gkAHJgiZl6WpTvRfqVBRoSIq7ZmnEVu5Ug6urSkMSA8I3GPBBraSu1S85WmdwPYZVdFQHHxITdOXuh0bTmf0rkNGXxdyNwrGvhyTjmTQVzFqjrlICMKzmR');">
+      <!-- Clean Grid Dot Texture -->
+      <div class="absolute inset-0 opacity-15"
+        style="background-image: radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px); background-size: 24px 24px;">
       </div>
 
-      <!-- Gradient -->
-      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/60 to-black"></div>
+      <!-- Subtle Bottom Fade -->
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background-dark"></div>
     </div>
 
     <!-- CONTENT -->
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-20 pb-30">
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-8 pb-16 md:pt-12 md:pb-24">
       <div class="flex flex-col items-center text-center max-w-4xl mx-auto gap-8">
 
         <!-- BADGE -->
@@ -159,7 +159,7 @@
     </div>
 
     <!-- TRUST BAR -->
-<div class="absolute bottom-0 left-0 w-full border-t border-neutral-800 bg-neutral-900/60 backdrop-blur overflow-hidden">
+    <div class="relative mt-auto w-full border-t border-neutral-800/80 bg-neutral-900/80 backdrop-blur-md overflow-hidden z-10">
 
   <div class="trust-wrapper py-6">
     <div class="trust-track">
