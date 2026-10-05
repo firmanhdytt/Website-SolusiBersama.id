@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Contact;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
 use App\Mail\ContactMail;
 
 class ContactController extends Controller
@@ -19,22 +20,19 @@ class ContactController extends Controller
             'message' => 'required|string',
         ]);
 
-        // Simpan ke database
-        Contact::create($validated);
+        // Simpan data kontak ke database agar aman & tercatat
+        $contact = Contact::create($validated);
 
+        // Kirim email notifikasi ke admin (dengan penanganan error graceful)
         try {
-            // Kirim email ke admin
             Mail::to("firmanhidayat1780@gmail.com")->send(new ContactMail($validated));
-        } catch (\Exception $e) {
-            return response()->json([
-                'success' => false,
-                'message' => "Email gagal dikirim: " . $e->getMessage()
-            ], 500);
+        } catch (\Throwable $e) {
+            Log::warning("Notifikasi email kontak gagal: " . $e->getMessage());
         }
 
         return response()->json([
             'success' => true,
-            'message' => "Pesan berhasil dikirim"
+            'message' => "Pesan Anda berhasil dikirim! Tim kami akan segera merespons."
         ]);
     }
 }
