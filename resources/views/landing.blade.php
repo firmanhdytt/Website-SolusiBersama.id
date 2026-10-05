@@ -231,102 +231,117 @@
 
 
 <!-- SECTION 2 — COMPANY PROFILE / ABOUT EXISTING -->
-<section id="about" class="relative overflow-hidden py-14 border-t border-border-dark bg-background-dark">
-  <div class="absolute inset-0 z-0">
-    <div class="absolute -top-40 -left-40 w-[600px] h-[600px] bg-white/10 rounded-full blur-[140px]"></div>
-    <div class="absolute top-1/3 -right-40 w-[500px] h-[500px] bg-white/5 rounded-full blur-[140px]"></div>
-    <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(rgba(255,255,255,0.2) 1px, transparent 1px); background-size: 3px 3px;"></div>
-    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-background-dark/40 to-background-dark"></div>
+<section id="about" class="relative overflow-hidden py-20 border-t border-border-dark bg-background-dark">
+  <!-- TRANSPARENT DOT-GRID MATRIX & AMBIENT GLOW BACKGROUND -->
+  <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+    <div class="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-full max-w-[600px] aspect-square bg-[radial-gradient(circle,rgba(255,255,255,0.05),transparent_70%)] opacity-80 blur-3xl"></div>
+    <div class="absolute inset-0 opacity-15" style="background-image: radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px); background-size: 24px 24px;"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-background-dark/80 via-transparent to-background-dark/80"></div>
   </div>
 
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-3xl mx-auto mb-20">
-      <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">
-        Tentang <span class="text-neutral-400">SolusiBersama.com</span>
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-neutral-700 bg-neutral-800/60 text-neutral-300 text-xs font-bold uppercase tracking-wider mb-4 backdrop-blur">
+        <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+        Tentang SolusiBersama.com
+      </div>
+      <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-6">
+        Mitra Digital Terpercaya untuk <br>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-neutral-200 via-neutral-400 to-neutral-600">
+          Pertumbuhan Bisnis Anda
+        </span>
       </h2>
-      <p class="text-lg text-white/60 leading-relaxed">
-        Kami adalah tim profesional yang berdedikasi untuk menghadirkan solusi digital
-        berkualitas tinggi bagi pertumbuhan bisnis Anda.
+      <p class="text-lg text-neutral-400 leading-relaxed">
+        Kami adalah tim profesional yang berdedikasi untuk menghadirkan solusi teknologi dan strategi digital berkualitas tinggi bagi ekspansi bisnis Anda.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-      <!-- LEFT : VISI & MISI -->
-      <div class="bg-surface-dark/80 backdrop-blur border border-border-dark rounded-2xl p-8 md:p-10 space-y-10">
-        <div>
-          <h3 class="text-2xl font-bold text-white mb-3">Visi Kami</h3>
-          <p class="text-white/60 leading-relaxed">
-            Menjadi mitra terpercaya dalam transformasi digital bisnis di Indonesia melalui solusi inovatif dan berkualitas tinggi.
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+      <!-- LEFT : VISI & MISI CARDS (COL-SPAN-7) -->
+      <div class="lg:col-span-7 flex flex-col gap-6">
+        <!-- VISI CARD -->
+        <div class="p-8 rounded-2xl bg-[#141414]/90 backdrop-blur border border-white/10 hover:border-white/20 transition-all duration-300 shadow-xl group">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-bold uppercase tracking-wider">VISI UTAMA</span>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-blue-300 transition">Visi Kami</h3>
+          <p class="text-neutral-300 leading-relaxed text-base">
+            Menjadi mitra terpercaya dalam transformasi digital bisnis di Indonesia melalui solusi inovatif, amanah, dan berkualitas tinggi yang mampu meningkatkan efisiensi serta daya saing pasar.
           </p>
         </div>
 
-        <div>
-          <h3 class="text-2xl font-bold text-white mb-6">Misi Kami</h3>
-          <ul class="space-y-4">
-            <li class="flex items-start gap-4">
-              <span class="material-symbols-outlined text-green-400 mt-1">check_circle</span>
-              <span class="text-white/70">Memberikan layanan digital berkualitas tinggi</span>
-            </li>
-            <li class="flex items-start gap-4">
-              <span class="material-symbols-outlined text-purple-400 mt-1">check_circle</span>
-              <span class="text-white/70">Membantu bisnis meningkatkan kehadiran online</span>
-            </li>
-            <li class="flex items-start gap-4">
-              <span class="material-symbols-outlined text-orange-400 mt-1">check_circle</span>
-              <span class="text-white/70">Memberikan solusi sesuai kebutuhan klien</span>
-            </li>
-            <li class="flex items-start gap-4">
-              <span class="material-symbols-outlined text-pink-400 mt-1">check_circle</span>
-              <span class="text-white/70">Mengikuti perkembangan teknologi terbaru</span>
-            </li>
-          </ul>
+        <!-- MISI CARD -->
+        <div class="p-8 rounded-2xl bg-[#141414]/90 backdrop-blur border border-white/10 hover:border-white/20 transition-all duration-300 shadow-xl group">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider">MISI STRATEGIS</span>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-6 group-hover:text-emerald-300 transition">Misi Kami</h3>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl bg-white/5 border border-white/5 flex items-start gap-3 hover:bg-white/10 transition">
+              <span class="material-symbols-outlined text-green-400 text-xl shrink-0 mt-0.5">check_circle</span>
+              <span class="text-neutral-300 text-sm font-medium">Layanan digital berstandar tinggi & efisien</span>
+            </div>
+            <div class="p-4 rounded-xl bg-white/5 border border-white/5 flex items-start gap-3 hover:bg-white/10 transition">
+              <span class="material-symbols-outlined text-cyan-400 text-xl shrink-0 mt-0.5">check_circle</span>
+              <span class="text-neutral-300 text-sm font-medium">Peningkatan brand kehadiran online bisnis</span>
+            </div>
+            <div class="p-4 rounded-xl bg-white/5 border border-white/5 flex items-start gap-3 hover:bg-white/10 transition">
+              <span class="material-symbols-outlined text-purple-400 text-xl shrink-0 mt-0.5">check_circle</span>
+              <span class="text-neutral-300 text-sm font-medium">Solusi kustom sesuai karakteristik proyek</span>
+            </div>
+            <div class="p-4 rounded-xl bg-white/5 border border-white/5 flex items-start gap-3 hover:bg-white/10 transition">
+              <span class="material-symbols-outlined text-amber-400 text-xl shrink-0 mt-0.5">check_circle</span>
+              <span class="text-neutral-300 text-sm font-medium">Adopsi teknologi arsitektur terbaru</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- RIGHT : WHY CHOOSE US -->
-      <div class="space-y-8">
-        <h3 class="text-3xl font-bold text-white mb-4">
+      <!-- RIGHT : WHY CHOOSE US (COL-SPAN-5) -->
+      <div class="lg:col-span-5 p-8 rounded-2xl bg-[#141414]/90 backdrop-blur border border-white/10 shadow-xl flex flex-col justify-between space-y-6">
+        <h3 class="text-2xl font-bold text-white border-b border-neutral-800 pb-4">
           Mengapa Memilih Kami?
         </h3>
 
-        <div class="space-y-6">
-          <div class="flex items-start gap-5">
-            <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
+        <div class="space-y-5">
+          <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-white/5 transition duration-300">
+            <div class="w-11 h-11 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0">
               <span class="material-symbols-outlined text-blue-400">verified</span>
             </div>
             <div>
-              <h4 class="text-lg font-semibold text-white">Kualitas Terjamin</h4>
-              <p class="text-white/60 text-sm">Kami mengutamakan kualitas dalam setiap proyek yang kami kerjakan.</p>
+              <h4 class="text-base font-bold text-white">Kualitas Terjamin</h4>
+              <p class="text-neutral-400 text-xs mt-0.5">Mengutamakan kualitas arsitektur & standar visual terbaik.</p>
             </div>
           </div>
 
-          <div class="flex items-start gap-5">
-            <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
-              <span class="material-symbols-outlined text-green-400">schedule</span>
+          <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-white/5 transition duration-300">
+            <div class="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-emerald-400">schedule</span>
             </div>
             <div>
-              <h4 class="text-lg font-semibold text-white">Tepat Waktu</h4>
-              <p class="text-white/60 text-sm">Komitmen kami adalah menyelesaikan proyek sesuai timeline.</p>
+              <h4 class="text-base font-bold text-white">Tepat Waktu</h4>
+              <p class="text-neutral-400 text-xs mt-0.5">Komitmen penuh pada kesepakatan lini masa (*timeline*).</p>
             </div>
           </div>
 
-          <div class="flex items-start gap-5">
-            <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
+          <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-white/5 transition duration-300">
+            <div class="w-11 h-11 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center shrink-0">
               <span class="material-symbols-outlined text-purple-400">groups</span>
             </div>
             <div>
-              <h4 class="text-lg font-semibold text-white">Tim Profesional</h4>
-              <p class="text-white/60 text-sm">Tim berpengalaman dan ahli di bidangnya masing-masing.</p>
+              <h4 class="text-base font-bold text-white">Tim Profesional</h4>
+              <p class="text-neutral-400 text-xs mt-0.5">Praktisi berpengalaman dan ahli di bidangnya masing-masing.</p>
             </div>
           </div>
 
-          <div class="flex items-start gap-5">
-            <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
-              <span class="material-symbols-outlined text-orange-400">support_agent</span>
+          <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-white/5 transition duration-300">
+            <div class="w-11 h-11 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-amber-400">support_agent</span>
             </div>
             <div>
-              <h4 class="text-lg font-semibold text-white">Dukungan Responsif</h4>
-              <p class="text-white/60 text-sm">Kami siap membantu Anda dengan respons cepat dan profesional.</p>
+              <h4 class="text-base font-bold text-white">Dukungan Responsif</h4>
+              <p class="text-neutral-400 text-xs mt-0.5">Pendampingan penuh dan tanggap merespons kebutuhan Anda.</p>
             </div>
           </div>
         </div>
@@ -336,34 +351,45 @@
 </section>
 
 
-<!-- SECTION 3 — LAYANAN EXISTING (DENGAN TOMBOL LIHAT DETAIL) -->
-<section id="services" class="bg-background-dark py-14 border-t border-border-dark">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- SECTION 3 — LAYANAN EXISTING (DENGAN TOMBOL LIHAT DETAIL & GLOWING HOVER) -->
+<section id="services" class="relative bg-background-dark py-20 border-t border-border-dark overflow-hidden">
+  <!-- TRANSPARENT DOT-GRID MATRIX & AMBIENT GLOW BACKGROUND -->
+  <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+    <div class="absolute top-1/3 right-1/4 w-full max-w-[650px] aspect-square bg-[radial-gradient(circle,rgba(255,255,255,0.05),transparent_70%)] opacity-80 blur-3xl"></div>
+    <div class="absolute inset-0 opacity-15" style="background-image: radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px); background-size: 24px 24px;"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-background-dark/80 via-transparent to-background-dark/80"></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
       <!-- LEFT HEADER -->
       <div class="flex flex-col gap-5 md:gap-6 md:sticky md:top-32">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-snug md:leading-tight">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-neutral-700 bg-neutral-800/60 text-neutral-300 text-xs font-bold uppercase tracking-wider w-fit backdrop-blur">
+          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+          Solusi Digital Komprehensif
+        </div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-snug md:leading-tight">
           Layanan Unggulan
           <span class="block text-neutral-500">Untuk Pertumbuhan Bisnis</span>
         </h2>
-        <p class="text-neutral-400 text-base sm:text-lg max-w-full md:max-w-lg">
-          Kami menyediakan berbagai layanan digital utama untuk membantu bisnis Anda berkembang secara berkelanjutan.
+        <p class="text-neutral-400 text-base sm:text-lg max-w-full md:max-w-lg leading-relaxed">
+          Kami menyediakan berbagai layanan digital utama yang dirancang secara spesifik untuk meningkatkan efisiensi operasional dan pertumbuhan bisnis Anda secara berkelanjutan.
         </p>
       </div>
 
-      <!-- RIGHT CARDS -->
+      <!-- RIGHT CARDS WITH COLOR-CODED GLOW HOVER EFFECTS -->
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
 
-        <!-- 1. WEBSITE -->
-        <div class="group p-6 rounded-xl bg-surface-dark border border-border-dark hover:border-neutral-600 hover:bg-[#1f1f1f] transition flex flex-col justify-between">
+        <!-- 1. WEBSITE (CYAN GLOW) -->
+        <div class="group p-6 rounded-2xl bg-[#141414]/90 backdrop-blur border border-white/10 hover:border-cyan-500/50 hover:shadow-[0_0_25px_rgba(6,182,212,0.25)] hover:bg-[#1a1a1a] transition-all duration-300 flex flex-col justify-between">
           <div>
-            <div class="w-12 h-12 rounded-lg bg-neutral-800 flex items-center justify-center text-white mb-6 group-hover:bg-white group-hover:text-black transition">
-              <span class="material-symbols-outlined">language</span>
+            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-black transition duration-300">
+              <span class="material-symbols-outlined text-2xl">language</span>
             </div>
-            <h3 class="text-xl font-bold text-white mb-2">Pembuatan Website</h3>
-            <p class="text-neutral-400 text-sm mb-6">
-              Website profesional, responsif, dan cepat sesuai kebutuhan bisnis Anda.
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition">Pembuatan Website</h3>
+            <p class="text-neutral-400 text-sm mb-6 leading-relaxed">
+              Website profesional, responsif, dan ultra cepat sesuai karakteristik bisnis Anda.
             </p>
           </div>
           <div class="flex justify-between items-center pt-4 border-t border-neutral-800">
@@ -372,22 +398,22 @@
               <a href="{{ route('services.website') }}" class="text-xs px-3 py-2 border border-neutral-700 text-neutral-300 rounded-lg font-medium hover:border-white hover:text-white transition">
                 Lihat Detail
               </a>
-              <button class="order-btn text-xs px-3 py-2 bg-white text-black rounded-lg font-semibold hover:bg-neutral-200 transition" data-service="website">
+              <button class="order-btn text-xs px-3 py-2 bg-white text-black rounded-lg font-semibold hover:bg-neutral-200 transition shadow" data-service="website">
                 Pesan
               </button>
             </div>
           </div>
         </div>
 
-        <!-- 2. DESIGN -->
-        <div class="group p-6 rounded-xl bg-surface-dark border border-border-dark hover:border-neutral-600 hover:bg-[#1f1f1f] transition flex flex-col justify-between">
+        <!-- 2. DESIGN (PURPLE GLOW) -->
+        <div class="group p-6 rounded-2xl bg-[#141414]/90 backdrop-blur border border-white/10 hover:border-purple-500/50 hover:shadow-[0_0_25px_rgba(168,85,247,0.25)] hover:bg-[#1a1a1a] transition-all duration-300 flex flex-col justify-between">
           <div>
-            <div class="w-12 h-12 rounded-lg bg-neutral-800 flex items-center justify-center text-white mb-6 group-hover:bg-white group-hover:text-black transition">
-              <span class="material-symbols-outlined">design_services</span>
+            <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-purple-500 group-hover:text-black transition duration-300">
+              <span class="material-symbols-outlined text-2xl">design_services</span>
             </div>
-            <h3 class="text-xl font-bold text-white mb-2">Desain Grafis</h3>
-            <p class="text-neutral-400 text-sm mb-6">
-              Desain visual profesional untuk branding dan promosi bisnis Anda.
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition">Desain Grafis</h3>
+            <p class="text-neutral-400 text-sm mb-6 leading-relaxed">
+              Desain visual profesional untuk branding dan promosi bisnis Anda secara elegan.
             </p>
           </div>
           <div class="flex justify-between items-center pt-4 border-t border-neutral-800">
@@ -396,22 +422,22 @@
               <a href="{{ route('services.graphic-design') }}" class="text-xs px-3 py-2 border border-neutral-700 text-neutral-300 rounded-lg font-medium hover:border-white hover:text-white transition">
                 Lihat Detail
               </a>
-              <button class="order-btn text-xs px-3 py-2 bg-white text-black rounded-lg font-semibold hover:bg-neutral-200 transition" data-service="design">
+              <button class="order-btn text-xs px-3 py-2 bg-white text-black rounded-lg font-semibold hover:bg-neutral-200 transition shadow" data-service="design">
                 Pesan
               </button>
             </div>
           </div>
         </div>
 
-        <!-- 3. MARKETING -->
-        <div class="group p-6 rounded-xl bg-surface-dark border border-border-dark hover:border-neutral-600 hover:bg-[#1f1f1f] transition flex flex-col justify-between">
+        <!-- 3. MARKETING (AMBER GLOW) -->
+        <div class="group p-6 rounded-2xl bg-[#141414]/90 backdrop-blur border border-white/10 hover:border-amber-500/50 hover:shadow-[0_0_25px_rgba(245,158,11,0.25)] hover:bg-[#1a1a1a] transition-all duration-300 flex flex-col justify-between">
           <div>
-            <div class="w-12 h-12 rounded-lg bg-neutral-800 flex items-center justify-center text-white mb-6 group-hover:bg-white group-hover:text-black transition">
-              <span class="material-symbols-outlined">campaign</span>
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-black transition duration-300">
+              <span class="material-symbols-outlined text-2xl">campaign</span>
             </div>
-            <h3 class="text-xl font-bold text-white mb-2">Digital Marketing</h3>
-            <p class="text-neutral-400 text-sm mb-6">
-              Strategi pemasaran digital untuk meningkatkan penjualan.
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition">Digital Marketing</h3>
+            <p class="text-neutral-400 text-sm mb-6 leading-relaxed">
+              Strategi pemasaran digital terukur untuk memperluas jangkauan dan transaksi.
             </p>
           </div>
           <div class="flex justify-between items-center pt-4 border-t border-neutral-800">
@@ -420,22 +446,22 @@
               <a href="{{ route('services.digital-marketing') }}" class="text-xs px-3 py-2 border border-neutral-700 text-neutral-300 rounded-lg font-medium hover:border-white hover:text-white transition">
                 Lihat Detail
               </a>
-              <button class="order-btn text-xs px-3 py-2 bg-white text-black rounded-lg font-semibold hover:bg-neutral-200 transition" data-service="marketing">
+              <button class="order-btn text-xs px-3 py-2 bg-white text-black rounded-lg font-semibold hover:bg-neutral-200 transition shadow" data-service="marketing">
                 Pesan
               </button>
             </div>
           </div>
         </div>
 
-        <!-- 4. APP -->
-        <div class="group p-6 rounded-xl bg-surface-dark border border-border-dark hover:border-neutral-600 hover:bg-[#1f1f1f] transition flex flex-col justify-between">
+        <!-- 4. APP (EMERALD GLOW) -->
+        <div class="group p-6 rounded-2xl bg-[#141414]/90 backdrop-blur border border-white/10 hover:border-emerald-500/50 hover:shadow-[0_0_25px_rgba(16,185,129,0.25)] hover:bg-[#1a1a1a] transition-all duration-300 flex flex-col justify-between">
           <div>
-            <div class="w-12 h-12 rounded-lg bg-neutral-800 flex items-center justify-center text-white mb-6 group-hover:bg-white group-hover:text-black transition">
-              <span class="material-symbols-outlined">terminal</span>
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-black transition duration-300">
+              <span class="material-symbols-outlined text-2xl">terminal</span>
             </div>
-            <h3 class="text-xl font-bold text-white mb-2">Pengembangan Aplikasi</h3>
-            <p class="text-neutral-400 text-sm mb-6">
-              Aplikasi web & mobile yang scalable dan aman.
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition">Pengembangan Aplikasi</h3>
+            <p class="text-neutral-400 text-sm mb-6 leading-relaxed">
+              Aplikasi web & mobile yang scalable, aman, dan berarsitektur bersih.
             </p>
           </div>
           <div class="flex justify-between items-center pt-4 border-t border-neutral-800">
@@ -444,22 +470,22 @@
               <a href="{{ route('services.application') }}" class="text-xs px-3 py-2 border border-neutral-700 text-neutral-300 rounded-lg font-medium hover:border-white hover:text-white transition">
                 Lihat Detail
               </a>
-              <button class="order-btn text-xs px-3 py-2 bg-white text-black rounded-lg font-semibold hover:bg-neutral-200 transition" data-service="app">
+              <button class="order-btn text-xs px-3 py-2 bg-white text-black rounded-lg font-semibold hover:bg-neutral-200 transition shadow" data-service="app">
                 Pesan
               </button>
             </div>
           </div>
         </div>
 
-        <!-- 5. VIDEO -->
-        <div class="group p-6 rounded-xl bg-surface-dark border border-border-dark hover:border-neutral-600 hover:bg-[#1f1f1f] transition flex flex-col justify-between">
+        <!-- 5. VIDEO (PINK GLOW) -->
+        <div class="group p-6 rounded-2xl bg-[#141414]/90 backdrop-blur border border-white/10 hover:border-pink-500/50 hover:shadow-[0_0_25px_rgba(244,63,94,0.25)] hover:bg-[#1a1a1a] transition-all duration-300 flex flex-col justify-between">
           <div>
-            <div class="w-12 h-12 rounded-lg bg-neutral-800 flex items-center justify-center text-white mb-6 group-hover:bg-white group-hover:text-black transition">
-              <span class="material-symbols-outlined">videocam</span>
+            <div class="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-pink-500 group-hover:text-black transition duration-300">
+              <span class="material-symbols-outlined text-2xl">videocam</span>
             </div>
-            <h3 class="text-xl font-bold text-white mb-2">Video Marketing</h3>
-            <p class="text-neutral-400 text-sm mb-6">
-              Video promosi profesional untuk meningkatkan engagement.
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-pink-400 transition">Video Marketing</h3>
+            <p class="text-neutral-400 text-sm mb-6 leading-relaxed">
+              Video promosi profesional untuk meningkatkan engagement pelanggan Anda.
             </p>
           </div>
           <div class="flex justify-between items-center pt-4 border-t border-neutral-800">
@@ -468,22 +494,22 @@
               <a href="{{ route('services.video') }}" class="text-xs px-3 py-2 border border-neutral-700 text-neutral-300 rounded-lg font-medium hover:border-white hover:text-white transition">
                 Lihat Detail
               </a>
-              <button class="order-btn text-xs px-3 py-2 bg-white text-black rounded-lg font-semibold hover:bg-neutral-200 transition" data-service="video">
+              <button class="order-btn text-xs px-3 py-2 bg-white text-black rounded-lg font-semibold hover:bg-neutral-200 transition shadow" data-service="video">
                 Pesan
               </button>
             </div>
           </div>
         </div>
 
-        <!-- 6. SEO -->
-        <div class="group p-6 rounded-xl bg-surface-dark border border-border-dark hover:border-neutral-600 hover:bg-[#1f1f1f] transition flex flex-col justify-between">
+        <!-- 6. SEO (BLUE GLOW) -->
+        <div class="group p-6 rounded-2xl bg-[#141414]/90 backdrop-blur border border-white/10 hover:border-blue-500/50 hover:shadow-[0_0_25px_rgba(59,130,246,0.25)] hover:bg-[#1a1a1a] transition-all duration-300 flex flex-col justify-between">
           <div>
-            <div class="w-12 h-12 rounded-lg bg-neutral-800 flex items-center justify-center text-white mb-6 group-hover:bg-white group-hover:text-black transition">
-              <span class="material-symbols-outlined">search</span>
+            <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-blue-500 group-hover:text-black transition duration-300">
+              <span class="material-symbols-outlined text-2xl">search</span>
             </div>
-            <h3 class="text-xl font-bold text-white mb-2">SEO & Optimasi</h3>
-            <p class="text-neutral-400 text-sm mb-6">
-              Optimasi website agar tampil di halaman pertama Google.
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition">SEO & Optimasi</h3>
+            <p class="text-neutral-400 text-sm mb-6 leading-relaxed">
+              Optimasi struktur website agar tampil dominan di halaman pencarian Google.
             </p>
           </div>
           <div class="flex justify-between items-center pt-4 border-t border-neutral-800">
@@ -492,7 +518,7 @@
               <a href="{{ route('services.seo') }}" class="text-xs px-3 py-2 border border-neutral-700 text-neutral-300 rounded-lg font-medium hover:border-white hover:text-white transition">
                 Lihat Detail
               </a>
-              <button class="order-btn text-xs px-3 py-2 bg-white text-black rounded-lg font-semibold hover:bg-neutral-200 transition" data-service="seo">
+              <button class="order-btn text-xs px-3 py-2 bg-white text-black rounded-lg font-semibold hover:bg-neutral-200 transition shadow" data-service="seo">
                 Pesan
               </button>
             </div>
@@ -506,11 +532,18 @@
 
 
 <!-- SECTION 4 — ALUR PEMESANAN / CARA KERJA (S-CURVE PATH DESAIN MENGANGKAT GAMBAR 1) -->
-<section id="process" class="relative bg-background-dark py-20 border-t border-border-dark overflow-hidden">
+<section id="process" class="relative bg-background-dark py-24 border-t border-border-dark overflow-hidden">
+  <!-- TRANSPARENT DOT-GRID MATRIX & AMBIENT GLOW BACKGROUND -->
+  <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[750px] aspect-square bg-[radial-gradient(circle,rgba(255,255,255,0.05),transparent_70%)] opacity-80 blur-3xl"></div>
+    <div class="absolute inset-0 opacity-15" style="background-image: radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px); background-size: 24px 24px;"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-background-dark/80 via-transparent to-background-dark/80"></div>
+  </div>
+
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <div class="text-center max-w-3xl mx-auto mb-20">
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-rose-500/30 bg-rose-500/10 text-rose-400 text-xs font-bold uppercase tracking-wider mb-4 shadow-[0_0_15px_rgba(244,63,94,0.2)]">
-        <span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-neutral-700 bg-neutral-800/60 text-neutral-300 text-xs font-bold uppercase tracking-wider mb-4 backdrop-blur shadow">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
         Alur Pengerjaan Proyek
       </div>
       <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white mb-4">
@@ -524,7 +557,7 @@
     <!-- DESKTOP S-CURVE FLOW (DESAIN TERINSPIRASI GAMBAR 1) -->
     <div class="hidden lg:block relative max-w-5xl mx-auto py-10">
 
-      <!-- SVG S-CURVE GLOWING LINE -->
+      <!-- SVG S-CURVE GLOWING LINE PRECISELY CONNECTING STEP CIRCLES -->
       <svg class="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 1000 1200" fill="none" preserveAspectRatio="none">
         <defs>
           <linearGradient id="flow-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -540,13 +573,13 @@
           </filter>
         </defs>
 
-        <!-- S-CURVE PATH CONNECTING 5 STEPS -->
-        <path d="M 800 60
-                 C 800 180, 200 180, 200 300
-                 C 200 420, 800 420, 800 540
-                 C 800 660, 200 660, 200 780
-                 C 200 900, 800 900, 800 1020"
-              stroke="url(#flow-gradient)" stroke-width="6" stroke-dasharray="10 6" filter="url(#glow-line)" opacity="0.85" />
+        <!-- REFINED S-CURVE PATH CONNECTING 5 STEPS SMOOTHLY -->
+        <path d="M 860 100
+                 C 860 220, 140 230, 140 350
+                 C 140 470, 860 480, 860 600
+                 C 860 720, 140 730, 140 850
+                 C 140 970, 860 980, 860 1100"
+              stroke="url(#flow-gradient)" stroke-width="5" stroke-dasharray="12 8" stroke-linecap="round" filter="url(#glow-line)" opacity="0.9" />
       </svg>
 
       <!-- STEP 01 (Tekss Kiri, Nomor Kanan) -->
@@ -724,10 +757,17 @@
 
 
 <!-- SECTION 5 — APA KATA MEREKA / TESTIMONIAL (3D DEPTH CAROUSEL SLIDER MENGANGKAT GAMBAR 2) -->
-<section id="testimonials" class="relative bg-background-dark py-20 border-t border-border-dark overflow-hidden">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="testimonials" class="relative bg-background-dark py-24 border-t border-border-dark overflow-hidden">
+  <!-- TRANSPARENT DOT-GRID MATRIX & AMBIENT GLOW BACKGROUND -->
+  <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[650px] aspect-square bg-[radial-gradient(circle,rgba(255,255,255,0.05),transparent_70%)] opacity-80 blur-3xl"></div>
+    <div class="absolute inset-0 opacity-15" style="background-image: radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px); background-size: 24px 24px;"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-background-dark/80 via-transparent to-background-dark/80"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <div class="text-center max-w-3xl mx-auto mb-16">
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4 shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-neutral-700 bg-neutral-800/60 text-neutral-300 text-xs font-bold uppercase tracking-wider mb-4 backdrop-blur shadow">
         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
         Social Proof & Kepercayaan
       </div>
@@ -875,24 +915,31 @@
 </section>
 
 
-<!-- SECTION 6 — FAQ ACCORDION (DESAIN SPESIFIK MENGANGKAT GAMBAR 3) -->
-<section id="faq" class="relative bg-background-dark py-20 border-t border-border-dark overflow-hidden">
+<!-- SECTION 6 — FAQ ACCORDION (DESAIN SLEEK METALLIC DARK NEUTRAL) -->
+<section id="faq" class="relative bg-background-dark py-24 border-t border-border-dark overflow-hidden">
+  <!-- TRANSPARENT DOT-GRID MATRIX & AMBIENT GLOW BACKGROUND -->
+  <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[650px] aspect-square bg-[radial-gradient(circle,rgba(255,255,255,0.05),transparent_70%)] opacity-80 blur-3xl"></div>
+    <div class="absolute inset-0 opacity-15" style="background-image: radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px); background-size: 24px 24px;"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-background-dark/80 via-transparent to-background-dark/80"></div>
+  </div>
+
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
-      <!-- LEFT COLUMN: TITLE & CALLOUT BOX (MENGANGKAT GAMBAR 3) -->
+      <!-- LEFT COLUMN: TITLE & CALLOUT BOX -->
       <div class="lg:col-span-5 space-y-8 lg:sticky lg:top-32">
         <div>
-          <!-- BADGE RED/ROSE -->
-          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-red-500/30 bg-red-500/10 text-red-400 text-xs font-bold uppercase tracking-wider mb-6 shadow-[0_0_15px_rgba(239,68,68,0.2)]">
-            <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+          <!-- BADGE SLEEK NEUTRAL -->
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-neutral-700 bg-neutral-800/60 text-neutral-300 text-xs font-bold uppercase tracking-wider mb-6 backdrop-blur shadow">
+            <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
             Tanya Jawab & Bantuan
           </div>
 
           <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight leading-[1.15] mb-4">
             Pertanyaan yang <br>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-rose-400 to-pink-500">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-300 to-neutral-500">
               Sering Diajukan.
             </span>
           </h2>
@@ -902,9 +949,9 @@
           </p>
         </div>
 
-        <!-- VIBRANT CALLOUT CARD (SAMA SEPERTI GAMBAR 3) -->
-        <div class="relative rounded-3xl p-8 bg-gradient-to-br from-red-600 via-rose-700 to-red-900 border border-red-500/40 shadow-2xl shadow-red-900/40 text-white overflow-hidden group">
-          <div class="absolute -right-8 -bottom-8 w-36 h-36 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+        <!-- SLEEK METALLIC CALLOUT CARD -->
+        <div class="relative rounded-3xl p-8 bg-gradient-to-br from-[#1c1c1c] via-[#151515] to-[#0d0d0d] border border-neutral-700/70 shadow-2xl text-white overflow-hidden group">
+          <div class="absolute -right-8 -bottom-8 w-36 h-36 bg-white/5 rounded-full blur-2xl pointer-events-none"></div>
 
           <div class="flex items-start gap-4 mb-4">
             <div class="w-12 h-12 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-white shrink-0 shadow-inner">
@@ -912,117 +959,117 @@
             </div>
             <div>
               <h3 class="text-xl font-bold text-white">Butuh Bantuan Langsung?</h3>
-              <p class="text-white/80 text-xs font-medium">Tim kami siap merespons cepat</p>
+              <p class="text-neutral-400 text-xs font-medium">Tim kami siap merespons cepat</p>
             </div>
           </div>
 
-          <p class="text-white/90 text-sm leading-relaxed mb-6">
+          <p class="text-neutral-300 text-sm leading-relaxed mb-6">
             Punya pertanyaan khusus seputar proyek atau rencana kerja sama pada bisnis Anda?
           </p>
 
           <a href="#contact"
-            class="w-full py-3.5 px-6 rounded-xl bg-white text-red-700 font-bold hover:bg-neutral-100 transition shadow-lg flex items-center justify-center gap-2 group-hover:translate-x-1 duration-300">
+            class="w-full py-3.5 px-6 rounded-xl bg-white text-black font-bold hover:bg-neutral-200 transition shadow-lg flex items-center justify-center gap-2 group-hover:translate-x-1 duration-300">
             <span>Hubungi Tim SolusiBersama</span>
             <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
           </a>
         </div>
       </div>
 
-      <!-- RIGHT COLUMN: NUMBERED ACCORDION STACK (MENGANGKAT GAMBAR 3) -->
+      <!-- RIGHT COLUMN: NUMBERED ACCORDION STACK WITH GLOW HOVER & SIZE STABILITY -->
       <div class="lg:col-span-7 space-y-4">
 
         <!-- ITEM 01 -->
-        <div class="faq-item rounded-2xl bg-[#141414] border border-white/10 hover:border-red-500/40 transition-all duration-300 overflow-hidden shadow-lg">
+        <div class="faq-item rounded-2xl bg-[#141414]/90 backdrop-blur border border-white/10 hover:border-neutral-500 hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] hover:bg-[#181818] transition-all duration-300 overflow-hidden shadow-lg">
           <button class="faq-toggle w-full p-6 text-left flex justify-between items-center text-white font-bold text-base md:text-lg gap-4 group">
             <div class="flex items-center gap-4">
-              <span class="faq-num w-10 h-10 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-sm font-bold flex items-center justify-center shrink-0">
+              <span class="faq-num w-10 h-10 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-300 text-sm font-bold flex items-center justify-center shrink-0 group-hover:border-white transition">
                 01
               </span>
-              <span class="group-hover:text-red-400 transition">Apakah desain website bisa disesuaikan dengan kebutuhan bisnis?</span>
+              <span class="group-hover:text-white transition">Apakah desain website bisa disesuaikan dengan kebutuhan bisnis?</span>
             </div>
             <span class="material-symbols-outlined faq-icon text-neutral-400 transition-transform duration-300 shrink-0">expand_more</span>
           </button>
-          <div class="faq-content hidden px-6 pb-6 text-neutral-300 text-sm leading-relaxed border-t border-neutral-800/80 pt-4 pl-20">
+          <div class="faq-content hidden px-6 pb-6 text-neutral-300 text-sm leading-relaxed border-t border-neutral-800/80 pt-4 pl-20 transition-all duration-300">
             Ya. Seluruh tata letak dan struktur visual disesuaikan penuh dengan karakteristik bisnis, target audiens, serta preferensi fungsional proyek Anda.
           </div>
         </div>
 
         <!-- ITEM 02 -->
-        <div class="faq-item rounded-2xl bg-[#141414] border border-white/10 hover:border-red-500/40 transition-all duration-300 overflow-hidden shadow-lg">
+        <div class="faq-item rounded-2xl bg-[#141414]/90 backdrop-blur border border-white/10 hover:border-neutral-500 hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] hover:bg-[#181818] transition-all duration-300 overflow-hidden shadow-lg">
           <button class="faq-toggle w-full p-6 text-left flex justify-between items-center text-white font-bold text-base md:text-lg gap-4 group">
             <div class="flex items-center gap-4">
-              <span class="faq-num w-10 h-10 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-sm font-bold flex items-center justify-center shrink-0">
+              <span class="faq-num w-10 h-10 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-300 text-sm font-bold flex items-center justify-center shrink-0 group-hover:border-white transition">
                 02
               </span>
-              <span class="group-hover:text-red-400 transition">Berapa lama proses pengerjaan proyek?</span>
+              <span class="group-hover:text-white transition">Berapa lama proses pengerjaan proyek?</span>
             </div>
             <span class="material-symbols-outlined faq-icon text-neutral-400 transition-transform duration-300 shrink-0">expand_more</span>
           </button>
-          <div class="faq-content hidden px-6 pb-6 text-neutral-300 text-sm leading-relaxed border-t border-neutral-800/80 pt-4 pl-20">
+          <div class="faq-content hidden px-6 pb-6 text-neutral-300 text-sm leading-relaxed border-t border-neutral-800/80 pt-4 pl-20 transition-all duration-300">
             Durasi pengerjaan tergantung jenis layanan. Pembuatan landing page membutuhkan waktu 3-7 hari, sedangkan aplikasi web/sistem custom berkisar 2-4 minggu.
           </div>
         </div>
 
         <!-- ITEM 03 -->
-        <div class="faq-item rounded-2xl bg-[#141414] border border-white/10 hover:border-red-500/40 transition-all duration-300 overflow-hidden shadow-lg">
+        <div class="faq-item rounded-2xl bg-[#141414]/90 backdrop-blur border border-white/10 hover:border-neutral-500 hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] hover:bg-[#181818] transition-all duration-300 overflow-hidden shadow-lg">
           <button class="faq-toggle w-full p-6 text-left flex justify-between items-center text-white font-bold text-base md:text-lg gap-4 group">
             <div class="flex items-center gap-4">
-              <span class="faq-num w-10 h-10 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-sm font-bold flex items-center justify-center shrink-0">
+              <span class="faq-num w-10 h-10 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-300 text-sm font-bold flex items-center justify-center shrink-0 group-hover:border-white transition">
                 03
               </span>
-              <span class="group-hover:text-red-400 transition">Apakah bisa membuat website custom?</span>
+              <span class="group-hover:text-white transition">Apakah bisa membuat website custom?</span>
             </div>
             <span class="material-symbols-outlined faq-icon text-neutral-400 transition-transform duration-300 shrink-0">expand_more</span>
           </button>
-          <div class="faq-content hidden px-6 pb-6 text-neutral-300 text-sm leading-relaxed border-t border-neutral-800/80 pt-4 pl-20">
+          <div class="faq-content hidden px-6 pb-6 text-neutral-300 text-sm leading-relaxed border-t border-neutral-800/80 pt-4 pl-20 transition-all duration-300">
             Tentu saja. Kami berpengalaman menangani berbagai kebutuhan website custom dari awal sesuai kebutuhan arsitektur data bisnis Anda.
           </div>
         </div>
 
         <!-- ITEM 04 -->
-        <div class="faq-item rounded-2xl bg-[#141414] border border-white/10 hover:border-red-500/40 transition-all duration-300 overflow-hidden shadow-lg">
+        <div class="faq-item rounded-2xl bg-[#141414]/90 backdrop-blur border border-white/10 hover:border-neutral-500 hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] hover:bg-[#181818] transition-all duration-300 overflow-hidden shadow-lg">
           <button class="faq-toggle w-full p-6 text-left flex justify-between items-center text-white font-bold text-base md:text-lg gap-4 group">
             <div class="flex items-center gap-4">
-              <span class="faq-num w-10 h-10 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-sm font-bold flex items-center justify-center shrink-0">
+              <span class="faq-num w-10 h-10 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-300 text-sm font-bold flex items-center justify-center shrink-0 group-hover:border-white transition">
                 04
               </span>
-              <span class="group-hover:text-red-400 transition">Apakah bisa melakukan revisi hasil pekerjaan?</span>
+              <span class="group-hover:text-white transition">Apakah bisa melakukan revisi hasil pekerjaan?</span>
             </div>
             <span class="material-symbols-outlined faq-icon text-neutral-400 transition-transform duration-300 shrink-0">expand_more</span>
           </button>
-          <div class="faq-content hidden px-6 pb-6 text-neutral-300 text-sm leading-relaxed border-t border-neutral-800/80 pt-4 pl-20">
+          <div class="faq-content hidden px-6 pb-6 text-neutral-300 text-sm leading-relaxed border-t border-neutral-800/80 pt-4 pl-20 transition-all duration-300">
             Ya. Setiap paket layanan mencakup kuota revisi sesuai kesepakatan awal untuk memastikan hasil akhir memenuhi ekspetasi Anda.
           </div>
         </div>
 
         <!-- ITEM 05 -->
-        <div class="faq-item rounded-2xl bg-[#141414] border border-white/10 hover:border-red-500/40 transition-all duration-300 overflow-hidden shadow-lg">
+        <div class="faq-item rounded-2xl bg-[#141414]/90 backdrop-blur border border-white/10 hover:border-neutral-500 hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] hover:bg-[#181818] transition-all duration-300 overflow-hidden shadow-lg">
           <button class="faq-toggle w-full p-6 text-left flex justify-between items-center text-white font-bold text-base md:text-lg gap-4 group">
             <div class="flex items-center gap-4">
-              <span class="faq-num w-10 h-10 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-sm font-bold flex items-center justify-center shrink-0">
+              <span class="faq-num w-10 h-10 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-300 text-sm font-bold flex items-center justify-center shrink-0 group-hover:border-white transition">
                 05
               </span>
-              <span class="group-hover:text-red-400 transition">Apakah tersedia dukungan teknis setelah proyek selesai?</span>
+              <span class="group-hover:text-white transition">Apakah tersedia dukungan teknis setelah proyek selesai?</span>
             </div>
             <span class="material-symbols-outlined faq-icon text-neutral-400 transition-transform duration-300 shrink-0">expand_more</span>
           </button>
-          <div class="faq-content hidden px-6 pb-6 text-neutral-300 text-sm leading-relaxed border-t border-neutral-800/80 pt-4 pl-20">
+          <div class="faq-content hidden px-6 pb-6 text-neutral-300 text-sm leading-relaxed border-t border-neutral-800/80 pt-4 pl-20 transition-all duration-300">
             Kami memberikan pendampingan dan garansi pemeliharaan teknis pasca-serah terima untuk memastikan sistem Anda berjalan lancar.
           </div>
         </div>
 
         <!-- ITEM 06 -->
-        <div class="faq-item rounded-2xl bg-[#141414] border border-white/10 hover:border-red-500/40 transition-all duration-300 overflow-hidden shadow-lg">
+        <div class="faq-item rounded-2xl bg-[#141414]/90 backdrop-blur border border-white/10 hover:border-neutral-500 hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] hover:bg-[#181818] transition-all duration-300 overflow-hidden shadow-lg">
           <button class="faq-toggle w-full p-6 text-left flex justify-between items-center text-white font-bold text-base md:text-lg gap-4 group">
             <div class="flex items-center gap-4">
-              <span class="faq-num w-10 h-10 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-sm font-bold flex items-center justify-center shrink-0">
+              <span class="faq-num w-10 h-10 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-300 text-sm font-bold flex items-center justify-center shrink-0 group-hover:border-white transition">
                 06
               </span>
-              <span class="group-hover:text-red-400 transition">Bagaimana cara memesan layanan?</span>
+              <span class="group-hover:text-white transition">Bagaimana cara memesan layanan?</span>
             </div>
             <span class="material-symbols-outlined faq-icon text-neutral-400 transition-transform duration-300 shrink-0">expand_more</span>
           </button>
-          <div class="faq-content hidden px-6 pb-6 text-neutral-300 text-sm leading-relaxed border-t border-neutral-800/80 pt-4 pl-20">
+          <div class="faq-content hidden px-6 pb-6 text-neutral-300 text-sm leading-relaxed border-t border-neutral-800/80 pt-4 pl-20 transition-all duration-300">
             Anda dapat menekan tombol "Konsultasikan Project" atau "Pesan" pada daftar layanan untuk mengisi formulir pemesanan digital atau langsung menghubungi tim kami via WhatsApp.
           </div>
         </div>
@@ -1035,29 +1082,43 @@
 </section>
 
 
-<!-- SECTION 7 — CTA UTAMA -->
+<!-- SECTION 7 — CTA UTAMA (DESAIN FLOATING BANNER inspirasi GAMBAR 2) -->
 <section id="cta-primary" class="relative bg-background-dark py-20 border-t border-border-dark overflow-hidden">
-  <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[700px] aspect-square bg-white/5 rounded-full blur-[140px]"></div>
+  <!-- TRANSPARENT DOT-GRID MATRIX & AMBIENT GLOW BACKGROUND -->
+  <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[650px] aspect-square bg-[radial-gradient(circle,rgba(255,255,255,0.05),transparent_70%)] opacity-80 blur-3xl"></div>
+    <div class="absolute inset-0 opacity-15" style="background-image: radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px); background-size: 24px 24px;"></div>
   </div>
 
-  <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-    <h2 class="text-4xl md:text-6xl font-black text-white tracking-tight leading-tight">
-      Punya Ide untuk Bisnis Anda?
-    </h2>
-    <p class="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto">
-      Diskusikan kebutuhan digital Anda bersama SolusiBersama dan temukan solusi yang sesuai dengan kebutuhan project.
-    </p>
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-      <a href="#contact"
-        class="w-full sm:w-auto h-14 px-8 rounded-lg bg-white text-black text-base font-bold hover:bg-neutral-200 transition transform hover:-translate-y-0.5 shadow-lg flex items-center justify-center gap-2">
-        <span>Konsultasikan Project</span>
-        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
-      </a>
-      <a href="#services"
-        class="w-full sm:w-auto h-14 px-8 rounded-lg border border-neutral-800 bg-neutral-900/60 text-white text-base font-bold hover:bg-neutral-800 transition flex items-center justify-center">
-        Lihat Layanan
-      </a>
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- BANNER CARD (INSPIRASI GAMBAR 2) -->
+    <div class="relative rounded-[2.5rem] p-10 lg:p-14 bg-gradient-to-r from-[#1a1a1a] via-[#121212] to-[#1a1a1a] border border-white/15 shadow-2xl overflow-hidden group">
+      <!-- AMBIENT GLOW INSIDE CARD -->
+      <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-white/5 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(rgba(255,255,255,0.2) 1px, transparent 1px); background-size: 20px 20px;"></div>
+
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10 text-left">
+        <div class="space-y-4 max-w-2xl">
+          <div class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-neutral-300 uppercase">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            SIAP TRANSFORMASI DIGITAL
+          </div>
+          <h2 class="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight">
+            Punya Ide untuk Bisnis Anda?
+          </h2>
+          <p class="text-neutral-400 text-base md:text-lg leading-relaxed">
+            Diskusikan kebutuhan website, aplikasi, maupun strategi digital bersama tim SolusiBersama untuk mendorong pertumbuhan bisnis Anda secara optimal.
+          </p>
+        </div>
+
+        <div class="w-full lg:w-auto flex justify-start lg:justify-end shrink-0">
+          <a href="#contact"
+            class="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-black font-bold text-base hover:bg-neutral-200 transition shadow-[0_0_25px_rgba(255,255,255,0.2)] flex items-center justify-center gap-3 shrink-0 group-hover:scale-105 duration-300">
+            <span>Hubungi SolusiBersama</span>
+            <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
