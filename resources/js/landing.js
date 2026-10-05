@@ -424,3 +424,20 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     smoothScrollTo(offsetPosition, 500);
   });
 });
+
+/* =========================================================
+   FAQ ACCORDION TOGGLE
+========================================================= */
+document.querySelectorAll('.faq-toggle').forEach(toggle => {
+  toggle.addEventListener('click', () => {
+    const content = toggle.nextElementSibling;
+    const icon = toggle.querySelector('.faq-icon');
+
+    if (content) {
+      content.classList.toggle('hidden');
+    }
+    if (icon) {
+      icon.classList.toggle('rotate-180');
+    }
+  });
+});

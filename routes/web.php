@@ -9,6 +9,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 // ======================
@@ -16,6 +17,16 @@ use Illuminate\Support\Facades\Route;
 // ======================
 Route::get('/', function () {
     return view('landing');
+});
+
+// Halaman Detail Layanan Publik
+Route::prefix('layanan')->group(function () {
+    Route::get('/website', [ServiceController::class, 'website'])->name('services.website');
+    Route::get('/graphic-design', [ServiceController::class, 'graphicDesign'])->name('services.graphic-design');
+    Route::get('/digital-marketing', [ServiceController::class, 'digitalMarketing'])->name('services.digital-marketing');
+    Route::get('/application', [ServiceController::class, 'application'])->name('services.application');
+    Route::get('/video', [ServiceController::class, 'video'])->name('services.video');
+    Route::get('/seo', [ServiceController::class, 'seo'])->name('services.seo');
 });
 
 // Kirim kontak (form di landing) dengan rate limiting (max 10 request / menit)
