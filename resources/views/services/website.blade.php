@@ -22,7 +22,6 @@
         <a href="{{ url('/') }}" class="text-neutral-400 hover:text-white text-sm font-medium transition-colors">Beranda</a>
         <a href="{{ url('/#about') }}" class="text-neutral-400 hover:text-white text-sm font-medium transition-colors">Tentang Kami</a>
         <a href="{{ url('/#services') }}" class="text-white text-sm font-semibold transition-colors">Layanan</a>
-        <a href="{{ url('/#case-studies') }}" class="text-neutral-400 hover:text-white text-sm font-medium transition-colors">Studi Kasus</a>
         <a href="{{ url('/#faq') }}" class="text-neutral-400 hover:text-white text-sm font-medium transition-colors">FAQ</a>
         <a href="{{ url('/#contact') }}" class="text-neutral-400 hover:text-white text-sm font-medium transition-colors">Kontak</a>
       </nav>
@@ -42,8 +41,8 @@
   <!-- MOBILE MENU -->
   <div id="mobile-menu" class="md:hidden hidden border-t border-border-dark bg-background-dark px-6 py-4 space-y-4">
     <a href="{{ url('/') }}" class="block text-neutral-400 hover:text-white transition">Beranda</a>
+    <a href="{{ url('/#about') }}" class="block text-neutral-400 hover:text-white transition">Tentang Kami</a>
     <a href="{{ url('/#services') }}" class="block text-white font-semibold transition">Layanan</a>
-    <a href="{{ url('/#case-studies') }}" class="block text-neutral-400 hover:text-white transition">Studi Kasus</a>
     <a href="{{ url('/#faq') }}" class="block text-neutral-400 hover:text-white transition">FAQ</a>
     <a href="{{ url('/#contact') }}" class="block text-neutral-400 hover:text-white transition">Kontak</a>
     <a href="{{ route('login') }}" class="block text-center bg-white text-black py-2 rounded-lg font-bold hover:bg-neutral-200 transition">Login</a>

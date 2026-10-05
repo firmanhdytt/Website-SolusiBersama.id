@@ -241,13 +241,13 @@
 
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center max-w-3xl mx-auto mb-16">
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-neutral-700 bg-neutral-800/60 text-neutral-300 text-xs font-bold uppercase tracking-wider mb-4 backdrop-blur">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-neutral-700 bg-neutral-800/60 text-neutral-300 text-xs font-bold uppercase tracking-wider mb-4 backdrop-blur shadow">
         <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
         Tentang SolusiBersama.com
       </div>
       <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-6">
         Mitra Digital Terpercaya untuk <br>
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-neutral-200 via-neutral-400 to-neutral-600">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-300 to-neutral-500">
           Pertumbuhan Bisnis Anda
         </span>
       </h2>
@@ -256,41 +256,42 @@
       </p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-      <!-- LEFT : VISI & MISI CARDS (COL-SPAN-7) -->
-      <div class="lg:col-span-7 flex flex-col gap-6">
-        <!-- VISI CARD -->
-        <div class="p-8 rounded-2xl bg-[#141414]/90 backdrop-blur border border-white/10 hover:border-white/20 transition-all duration-300 shadow-xl group">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-bold uppercase tracking-wider">VISI UTAMA</span>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
+      <!-- LEFT COLUMN : VISI & MISI INTEGRATED CARD -->
+      <div class="p-8 md:p-10 rounded-3xl bg-[#141414]/90 backdrop-blur border border-white/10 shadow-2xl flex flex-col justify-between space-y-8">
+        <!-- VISI -->
+        <div class="space-y-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-bold uppercase tracking-wider">
+            <span class="material-symbols-outlined text-[16px]">visibility</span>
+            VISI UTAMA
           </div>
-          <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-blue-300 transition">Visi Kami</h3>
+          <h3 class="text-2xl font-bold text-white">Visi Kami</h3>
           <p class="text-neutral-300 leading-relaxed text-base">
             Menjadi mitra terpercaya dalam transformasi digital bisnis di Indonesia melalui solusi inovatif, amanah, dan berkualitas tinggi yang mampu meningkatkan efisiensi serta daya saing pasar.
           </p>
         </div>
 
-        <!-- MISI CARD -->
-        <div class="p-8 rounded-2xl bg-[#141414]/90 backdrop-blur border border-white/10 hover:border-white/20 transition-all duration-300 shadow-xl group">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider">MISI STRATEGIS</span>
+        <div class="border-t border-neutral-800/80 pt-6 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider">
+            <span class="material-symbols-outlined text-[16px]">flag</span>
+            MISI STRATEGIS
           </div>
-          <h3 class="text-2xl font-bold text-white mb-6 group-hover:text-emerald-300 transition">Misi Kami</h3>
-          
+          <h3 class="text-2xl font-bold text-white">Misi Kami</h3>
+
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div class="p-4 rounded-xl bg-white/5 border border-white/5 flex items-start gap-3 hover:bg-white/10 transition">
+            <div class="p-4 rounded-xl bg-white/5 border border-white/5 flex items-start gap-3 hover:border-white/20 transition">
               <span class="material-symbols-outlined text-green-400 text-xl shrink-0 mt-0.5">check_circle</span>
               <span class="text-neutral-300 text-sm font-medium">Layanan digital berstandar tinggi & efisien</span>
             </div>
-            <div class="p-4 rounded-xl bg-white/5 border border-white/5 flex items-start gap-3 hover:bg-white/10 transition">
+            <div class="p-4 rounded-xl bg-white/5 border border-white/5 flex items-start gap-3 hover:border-white/20 transition">
               <span class="material-symbols-outlined text-cyan-400 text-xl shrink-0 mt-0.5">check_circle</span>
               <span class="text-neutral-300 text-sm font-medium">Peningkatan brand kehadiran online bisnis</span>
             </div>
-            <div class="p-4 rounded-xl bg-white/5 border border-white/5 flex items-start gap-3 hover:bg-white/10 transition">
+            <div class="p-4 rounded-xl bg-white/5 border border-white/5 flex items-start gap-3 hover:border-white/20 transition">
               <span class="material-symbols-outlined text-purple-400 text-xl shrink-0 mt-0.5">check_circle</span>
               <span class="text-neutral-300 text-sm font-medium">Solusi kustom sesuai karakteristik proyek</span>
             </div>
-            <div class="p-4 rounded-xl bg-white/5 border border-white/5 flex items-start gap-3 hover:bg-white/10 transition">
+            <div class="p-4 rounded-xl bg-white/5 border border-white/5 flex items-start gap-3 hover:border-white/20 transition">
               <span class="material-symbols-outlined text-amber-400 text-xl shrink-0 mt-0.5">check_circle</span>
               <span class="text-neutral-300 text-sm font-medium">Adopsi teknologi arsitektur terbaru</span>
             </div>
@@ -298,51 +299,49 @@
         </div>
       </div>
 
-      <!-- RIGHT : WHY CHOOSE US (COL-SPAN-5) -->
-      <div class="lg:col-span-5 p-8 rounded-2xl bg-[#141414]/90 backdrop-blur border border-white/10 shadow-xl flex flex-col justify-between space-y-6">
-        <h3 class="text-2xl font-bold text-white border-b border-neutral-800 pb-4">
-          Mengapa Memilih Kami?
-        </h3>
+      <!-- RIGHT COLUMN : MENGAPA MEMILIH KAMI? -->
+      <div class="p-8 md:p-10 rounded-3xl bg-[#141414]/90 backdrop-blur border border-white/10 shadow-2xl flex flex-col justify-between space-y-8">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs font-bold uppercase tracking-wider mb-4">
+            <span class="material-symbols-outlined text-[16px]">stars</span>
+            NILAI & KEUNGGULAN
+          </div>
+          <h3 class="text-2xl font-bold text-white border-b border-neutral-800 pb-4">
+            Mengapa Memilih Kami?
+          </h3>
+        </div>
 
-        <div class="space-y-5">
-          <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-white/5 transition duration-300">
-            <div class="w-11 h-11 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0">
-              <span class="material-symbols-outlined text-blue-400">verified</span>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500/50 hover:bg-[#181818] transition-all duration-300 space-y-3">
+            <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-blue-400 text-2xl">verified</span>
             </div>
-            <div>
-              <h4 class="text-base font-bold text-white">Kualitas Terjamin</h4>
-              <p class="text-neutral-400 text-xs mt-0.5">Mengutamakan kualitas arsitektur & standar visual terbaik.</p>
-            </div>
+            <h4 class="text-base font-bold text-white">Kualitas Terjamin</h4>
+            <p class="text-neutral-400 text-xs leading-relaxed">Mengutamakan kualitas arsitektur & standar visual terbaik.</p>
           </div>
 
-          <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-white/5 transition duration-300">
-            <div class="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0">
-              <span class="material-symbols-outlined text-emerald-400">schedule</span>
+          <div class="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-emerald-500/50 hover:bg-[#181818] transition-all duration-300 space-y-3">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-emerald-400 text-2xl">schedule</span>
             </div>
-            <div>
-              <h4 class="text-base font-bold text-white">Tepat Waktu</h4>
-              <p class="text-neutral-400 text-xs mt-0.5">Komitmen penuh pada kesepakatan lini masa (*timeline*).</p>
-            </div>
+            <h4 class="text-base font-bold text-white">Tepat Waktu</h4>
+            <p class="text-neutral-400 text-xs leading-relaxed">Komitmen penuh pada kesepakatan lini masa (*timeline*).</p>
           </div>
 
-          <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-white/5 transition duration-300">
-            <div class="w-11 h-11 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center shrink-0">
-              <span class="material-symbols-outlined text-purple-400">groups</span>
+          <div class="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500/50 hover:bg-[#181818] transition-all duration-300 space-y-3">
+            <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-purple-400 text-2xl">groups</span>
             </div>
-            <div>
-              <h4 class="text-base font-bold text-white">Tim Profesional</h4>
-              <p class="text-neutral-400 text-xs mt-0.5">Praktisi berpengalaman dan ahli di bidangnya masing-masing.</p>
-            </div>
+            <h4 class="text-base font-bold text-white">Tim Profesional</h4>
+            <p class="text-neutral-400 text-xs leading-relaxed">Praktisi berpengalaman dan ahli di bidangnya masing-masing.</p>
           </div>
 
-          <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-white/5 transition duration-300">
-            <div class="w-11 h-11 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center shrink-0">
-              <span class="material-symbols-outlined text-amber-400">support_agent</span>
+          <div class="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-amber-500/50 hover:bg-[#181818] transition-all duration-300 space-y-3">
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-amber-400 text-2xl">support_agent</span>
             </div>
-            <div>
-              <h4 class="text-base font-bold text-white">Dukungan Responsif</h4>
-              <p class="text-neutral-400 text-xs mt-0.5">Pendampingan penuh dan tanggap merespons kebutuhan Anda.</p>
-            </div>
+            <h4 class="text-base font-bold text-white">Dukungan Responsif</h4>
+            <p class="text-neutral-400 text-xs leading-relaxed">Pendampingan penuh dan tanggap merespons kebutuhan Anda.</p>
           </div>
         </div>
       </div>
@@ -363,8 +362,8 @@
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
-      <!-- LEFT HEADER -->
-      <div class="flex flex-col gap-5 md:gap-6 md:sticky md:top-32">
+      <!-- LEFT HEADER (STICKY PINNED WHILE SCROLLING RIGHT CARDS) -->
+      <div class="flex flex-col gap-5 md:gap-6 lg:sticky lg:top-32 self-start h-fit">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-neutral-700 bg-neutral-800/60 text-neutral-300 text-xs font-bold uppercase tracking-wider w-fit backdrop-blur">
           <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
           Solusi Digital Komprehensif
@@ -928,8 +927,8 @@
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
-      <!-- LEFT COLUMN: TITLE & CALLOUT BOX -->
-      <div class="lg:col-span-5 space-y-8 lg:sticky lg:top-32">
+      <!-- LEFT COLUMN: TITLE & CALLOUT BOX (LOCKED STICKY IN PLACE) -->
+      <div class="lg:col-span-5 space-y-8 lg:sticky lg:top-32 self-start h-fit">
         <div>
           <!-- BADGE SLEEK NEUTRAL -->
           <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-neutral-700 bg-neutral-800/60 text-neutral-300 text-xs font-bold uppercase tracking-wider mb-6 backdrop-blur shadow">
