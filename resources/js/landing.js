@@ -441,3 +441,118 @@ document.querySelectorAll('.faq-toggle').forEach(toggle => {
     }
   });
 });
+
+/* =========================================================
+   3D DEPTH TESTIMONIAL SLIDER (MENGANGKAT GAMBAR 2)
+========================================================= */
+function initTestimonialSlider() {
+  const cards = document.querySelectorAll('.testimonial-card');
+  const dots = document.querySelectorAll('.dot-item');
+  const prevBtn = document.getElementById('testi-prev');
+  const nextBtn = document.getElementById('testi-next');
+
+  if (!cards.length) return;
+
+  let current = 0;
+  const total = cards.length;
+  let autoplayTimer = null;
+
+  function updateSlider() {
+    cards.forEach((card, index) => {
+      let diff = index - current;
+      if (diff < -1) diff += total;
+      if (diff > total / 2) diff -= total;
+
+      card.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+
+      if (diff === 0) {
+        // CENTER CARD (DOMINAN & BESAR)
+        card.style.transform = 'translateX(0%) scale(1.05)';
+        card.style.opacity = '1';
+        card.style.zIndex = '30';
+        card.style.filter = 'none';
+        card.style.pointerEvents = 'auto';
+      } else if (diff === 1 || (current === total - 1 && index === 0)) {
+        // RIGHT CARD (REDUP & MENGECIL)
+        card.style.transform = 'translateX(65%) scale(0.85)';
+        card.style.opacity = '0.45';
+        card.style.zIndex = '10';
+        card.style.filter = 'blur(1px)';
+        card.style.pointerEvents = 'auto';
+      } else if (diff === -1 || (current === 0 && index === total - 1)) {
+        // LEFT CARD (REDUP & MENGECIL)
+        card.style.transform = 'translateX(-65%) scale(0.85)';
+        card.style.opacity = '0.45';
+        card.style.zIndex = '10';
+        card.style.filter = 'blur(1px)';
+        card.style.pointerEvents = 'auto';
+      } else {
+        // HIDDEN CARDS
+        card.style.transform = 'translateX(0%) scale(0.7)';
+        card.style.opacity = '0';
+        card.style.zIndex = '0';
+        card.style.pointerEvents = 'none';
+      }
+    });
+
+    dots.forEach((dot, index) => {
+      if (index === current) {
+        dot.className = 'dot-item w-8 h-3 rounded-full bg-emerald-500 cursor-pointer transition-all duration-300';
+      } else {
+        dot.className = 'dot-item w-3 h-3 rounded-full bg-neutral-700 hover:bg-neutral-500 cursor-pointer transition-all duration-300';
+      }
+    });
+  }
+
+  function nextSlide() {
+    current = (current + 1) % total;
+    updateSlider();
+  }
+
+  function prevSlide() {
+    current = (current - 1 + total) % total;
+    updateSlider();
+  }
+
+  nextBtn?.addEventListener('click', () => {
+    nextSlide();
+    resetAutoplay();
+  });
+
+  prevBtn?.addEventListener('click', () => {
+    prevSlide();
+    resetAutoplay();
+  });
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      current = index;
+      updateSlider();
+      resetAutoplay();
+    });
+  });
+
+  cards.forEach((card, index) => {
+    card.addEventListener('click', () => {
+      if (index !== current) {
+        current = index;
+        updateSlider();
+        resetAutoplay();
+      }
+    });
+  });
+
+  function startAutoplay() {
+    autoplayTimer = setInterval(nextSlide, 4500);
+  }
+
+  function resetAutoplay() {
+    clearInterval(autoplayTimer);
+    startAutoplay();
+  }
+
+  updateSlider();
+  startAutoplay();
+}
+
+initTestimonialSlider();

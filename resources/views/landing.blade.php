@@ -30,11 +30,11 @@
         <a href="#services" class="text-neutral-400 hover:text-white text-sm font-medium transition-colors">
           Layanan
         </a>
-        <a href="#case-studies" class="text-neutral-400 hover:text-white text-sm font-medium transition-colors">
-          Studi Kasus
-        </a>
         <a href="#process" class="text-neutral-400 hover:text-white text-sm font-medium transition-colors">
           Cara Kerja
+        </a>
+        <a href="#testimonials" class="text-neutral-400 hover:text-white text-sm font-medium transition-colors">
+          Testimonial
         </a>
         <a href="#faq" class="text-neutral-400 hover:text-white text-sm font-medium transition-colors">
           FAQ
@@ -67,8 +67,8 @@
     <a href="#" class="block text-neutral-400 hover:text-white transition">Beranda</a>
     <a href="#about" class="block text-neutral-400 hover:text-white transition">Tentang Kami</a>
     <a href="#services" class="block text-neutral-400 hover:text-white transition">Layanan</a>
-    <a href="#case-studies" class="block text-neutral-400 hover:text-white transition">Studi Kasus</a>
     <a href="#process" class="block text-neutral-400 hover:text-white transition">Cara Kerja</a>
+    <a href="#testimonials" class="block text-neutral-400 hover:text-white transition">Testimonial</a>
     <a href="#faq" class="block text-neutral-400 hover:text-white transition">FAQ</a>
     <a href="#contact" class="block text-neutral-400 hover:text-white transition">Kontak</a>
 
@@ -505,361 +505,537 @@
 </section>
 
 
-<!-- SECTION 4 — STUDI KASUS (NEW) -->
-<section id="case-studies" class="relative bg-background-dark py-16 border-t border-border-dark overflow-hidden">
+<!-- SECTION 4 — ALUR PEMESANAN / CARA KERJA (S-CURVE PATH DESAIN MENGANGKAT GAMBAR 1) -->
+<section id="process" class="relative bg-background-dark py-20 border-t border-border-dark overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neutral-800 bg-neutral-900/60 backdrop-blur mb-4">
-        <span class="w-2 h-2 rounded-full bg-blue-500"></span>
-        <span class="text-xs font-semibold uppercase tracking-wider text-neutral-300">Studi Kasus Proyek</span>
+    <div class="text-center max-w-3xl mx-auto mb-20">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-rose-500/30 bg-rose-500/10 text-rose-400 text-xs font-bold uppercase tracking-wider mb-4 shadow-[0_0_15px_rgba(244,63,94,0.2)]">
+        <span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+        Alur Pengerjaan Proyek
       </div>
-      <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
-        Bagaimana Kami Membantu Klien Tumbuh
-      </h2>
-      <p class="text-neutral-400 text-lg">
-        Pendekatan terstruktur dalam menyelesaikan berbagai kebutuhan digital bisnis secara efektif dan efisien.
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Case 1: Website Company Profile -->
-      <div class="p-6 rounded-2xl bg-surface-dark border border-border-dark hover:border-neutral-700 transition flex flex-col justify-between space-y-6">
-        <div>
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Website</span>
-            <span class="text-xs text-neutral-500">Company Profile</span>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Redesain Website Modern Perusahaan</h3>
-          <div class="space-y-3 text-sm text-neutral-400">
-            <div>
-              <strong class="text-white block mb-1">Tantangan:</strong>
-              Website lama kurang responsif dan informasi layanan sulit ditemukan calon pelanggan.
-            </div>
-            <div>
-              <strong class="text-white block mb-1">Solusi:</strong>
-              Membangun website responsif berkecepatan tinggi dengan struktur informasi jernih dan integrasi WhatsApp.
-            </div>
-            <div>
-              <strong class="text-white block mb-1">Hasil:</strong>
-              Memudahkan calon pelanggan menghubungi tim penjualan dan meningkatkan profesionalitas brand.
-            </div>
-          </div>
-        </div>
-        <div class="pt-4 border-t border-neutral-800 flex items-center justify-between">
-          <a href="{{ route('services.website') }}" class="text-sm font-semibold text-white hover:text-neutral-300 flex items-center gap-1">
-            <span>Lihat Layanan Website</span>
-            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Case 2: Sistem Informasi Internal -->
-      <div class="p-6 rounded-2xl bg-surface-dark border border-border-dark hover:border-neutral-700 transition flex flex-col justify-between space-y-6">
-        <div>
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Aplikasi</span>
-            <span class="text-xs text-neutral-500">Sistem Manufaktur</span>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Sistem Operasional & Dashboard Manajemen</h3>
-          <div class="space-y-3 text-sm text-neutral-400">
-            <div>
-              <strong class="text-white block mb-1">Tantangan:</strong>
-              Pencatatan data pesanan dan penagihan proyek masih manual menggunakan spreadsheet terpisah.
-            </div>
-            <div>
-              <strong class="text-white block mb-1">Solusi:</strong>
-              Mengembangkan aplikasi web internal terpusat dengan modul pesanan, piutang, dan timeline otomatis.
-            </div>
-            <div>
-              <strong class="text-white block mb-1">Hasil:</strong>
-              Mempermudah pemantauan status proyek dan mempercepat rekapitulasi laporan keuangan bulanan.
-            </div>
-          </div>
-        </div>
-        <div class="pt-4 border-t border-neutral-800 flex items-center justify-between">
-          <a href="{{ route('services.application') }}" class="text-sm font-semibold text-white hover:text-neutral-300 flex items-center gap-1">
-            <span>Lihat Layanan Aplikasi</span>
-            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Case 3: Branding & Social Media -->
-      <div class="p-6 rounded-2xl bg-surface-dark border border-border-dark hover:border-neutral-700 transition flex flex-col justify-between space-y-6">
-        <div>
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">Desain & Digital</span>
-            <span class="text-xs text-neutral-500">Branding Identity</span>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Pembaruan Identitas Visual & Strategi Konten</h3>
-          <div class="space-y-3 text-sm text-neutral-400">
-            <div>
-              <strong class="text-white block mb-1">Tantangan:</strong>
-              Tampilan promosi produk tidak konsisten sehingga kurang membangun kepercayaan pasar.
-            </div>
-            <div>
-              <strong class="text-white block mb-1">Solusi:</strong>
-              Menyusun brand guideline komprehensif, desain materi promosi, dan jadwal rilis media sosial.
-            </div>
-            <div>
-              <strong class="text-white block mb-1">Hasil:</strong>
-              Hadirnya tampilan visual yang konsisten dan menarik perhatian calon pembeli potensial.
-            </div>
-          </div>
-        </div>
-        <div class="pt-4 border-t border-neutral-800 flex items-center justify-between">
-          <a href="{{ route('services.graphic-design') }}" class="text-sm font-semibold text-white hover:text-neutral-300 flex items-center gap-1">
-            <span>Lihat Desain Grafis</span>
-            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- SECTION 5 — ALUR PEMESANAN / CARA KERJA (NEW) -->
-<section id="process" class="relative bg-background-dark py-16 border-t border-border-dark">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neutral-800 bg-neutral-900/60 backdrop-blur mb-4">
-        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-        <span class="text-xs font-semibold uppercase tracking-wider text-neutral-300">Alur Kerja</span>
-      </div>
-      <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
+      <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white mb-4">
         Bagaimana Cara Kerjanya?
       </h2>
       <p class="text-neutral-400 text-lg">
-        Proses pengerjaan transparan dan terstruktur dalam 5 langkah sederhana dari konsultasi hingga rilis.
+        Proses pengerjaan yang transparan, amanah, dan terstruktur dari konsultasi ide hingga siap rilis publik.
       </p>
     </div>
 
-    <!-- Steps Grid (Desktop: Horizontal Flow, Mobile: Vertical Flow) -->
-    <div class="grid grid-cols-1 md:grid-cols-5 gap-6 relative">
-      <div class="p-6 rounded-xl bg-surface-dark border border-border-dark relative flex flex-col justify-between">
-        <div>
-          <span class="text-3xl font-black text-white/20 block mb-4">01</span>
-          <h3 class="text-lg font-bold text-white mb-2">Konsultasi</h3>
-          <p class="text-sm text-neutral-400">Ceritakan kebutuhan bisnis atau project digital yang ingin Anda kembangkan.</p>
+    <!-- DESKTOP S-CURVE FLOW (DESAIN TERINSPIRASI GAMBAR 1) -->
+    <div class="hidden lg:block relative max-w-5xl mx-auto py-10">
+
+      <!-- SVG S-CURVE GLOWING LINE -->
+      <svg class="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 1000 1200" fill="none" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="flow-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ef4444" />
+            <stop offset="25%" stop-color="#f59e0b" />
+            <stop offset="50%" stop-color="#10b981" />
+            <stop offset="75%" stop-color="#06b6d4" />
+            <stop offset="100%" stop-color="#8b5cf6" />
+          </linearGradient>
+          <filter id="glow-line" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="6" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+          </filter>
+        </defs>
+
+        <!-- S-CURVE PATH CONNECTING 5 STEPS -->
+        <path d="M 800 60
+                 C 800 180, 200 180, 200 300
+                 C 200 420, 800 420, 800 540
+                 C 800 660, 200 660, 200 780
+                 C 200 900, 800 900, 800 1020"
+              stroke="url(#flow-gradient)" stroke-width="6" stroke-dasharray="10 6" filter="url(#glow-line)" opacity="0.85" />
+      </svg>
+
+      <!-- STEP 01 (Tekss Kiri, Nomor Kanan) -->
+      <div class="relative z-10 grid grid-cols-12 items-center mb-24">
+        <div class="col-span-6 pr-8">
+          <div class="p-8 rounded-2xl bg-surface-dark border border-white/10 hover:border-red-500/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(239,68,68,0.2)] group">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-xl bg-red-500/10 text-red-400 flex items-center justify-center font-bold">
+                <span class="material-symbols-outlined">forum</span>
+              </div>
+              <h3 class="text-xl font-bold text-white group-hover:text-red-400 transition">Konsultasi & Riset Ide</h3>
+            </div>
+            <p class="text-neutral-400 text-sm leading-relaxed">
+              Ceritakan ide bisnis, target pasar, serta kebutuhan proyek Anda. Tim kami akan menganalisis kebutuhan awal secara mendalam.
+            </p>
+          </div>
+        </div>
+        <div class="col-span-6 flex justify-end pr-12">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-br from-red-500 to-rose-600 text-white font-black text-2xl flex items-center justify-center shadow-lg shadow-red-500/40 ring-4 ring-background-dark transform hover:scale-110 transition">
+            01
+          </div>
         </div>
       </div>
 
-      <div class="p-6 rounded-xl bg-surface-dark border border-border-dark relative flex flex-col justify-between">
-        <div>
-          <span class="text-3xl font-black text-white/20 block mb-4">02</span>
+      <!-- STEP 02 (Nomor Kiri, Teks Kanan) -->
+      <div class="relative z-10 grid grid-cols-12 items-center mb-24">
+        <div class="col-span-6 flex justify-start pl-12">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white font-black text-2xl flex items-center justify-center shadow-lg shadow-amber-500/40 ring-4 ring-background-dark transform hover:scale-110 transition">
+            02
+          </div>
+        </div>
+        <div class="col-span-6 pl-8">
+          <div class="p-8 rounded-2xl bg-surface-dark border border-white/10 hover:border-amber-500/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(245,158,11,0.2)] group">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold">
+                <span class="material-symbols-outlined">description</span>
+              </div>
+              <h3 class="text-xl font-bold text-white group-hover:text-amber-400 transition">Diskusi & Penawaran</h3>
+            </div>
+            <p class="text-neutral-400 text-sm leading-relaxed">
+              Tim menyusun perancangan estimasi fitur, harga transparan, serta kesepakatan lini masa pengerjaan (*timeline*).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 03 (Teks Kiri, Nomor Kanan) -->
+      <div class="relative z-10 grid grid-cols-12 items-center mb-24">
+        <div class="col-span-6 pr-8">
+          <div class="p-8 rounded-2xl bg-surface-dark border border-white/10 hover:border-emerald-500/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(16,185,129,0.2)] group">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold">
+                <span class="material-symbols-outlined">code</span>
+              </div>
+              <h3 class="text-xl font-bold text-white group-hover:text-emerald-400 transition">Proses Development</h3>
+            </div>
+            <p class="text-neutral-400 text-sm leading-relaxed">
+              Proyek dikerjakan secara intensif menggunakan standar arsitektur terbersih dan desain UI/UX teruji.
+            </p>
+          </div>
+        </div>
+        <div class="col-span-6 flex justify-end pr-12">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-br from-emerald-400 to-teal-600 text-white font-black text-2xl flex items-center justify-center shadow-lg shadow-emerald-500/40 ring-4 ring-background-dark transform hover:scale-110 transition">
+            03
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 04 (Nomor Kiri, Teks Kanan) -->
+      <div class="relative z-10 grid grid-cols-12 items-center mb-24">
+        <div class="col-span-6 flex justify-start pl-12">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 text-white font-black text-2xl flex items-center justify-center shadow-lg shadow-cyan-500/40 ring-4 ring-background-dark transform hover:scale-110 transition">
+            04
+          </div>
+        </div>
+        <div class="col-span-6 pl-8">
+          <div class="p-8 rounded-2xl bg-surface-dark border border-white/10 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(6,182,212,0.2)] group">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold">
+                <span class="material-symbols-outlined">fact_check</span>
+              </div>
+              <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition">Review & Pengujian</h3>
+            </div>
+            <p class="text-neutral-400 text-sm leading-relaxed">
+              Klien melakukan peninjauan terhadap hasil pekerjaan, uji fungsi, dan memberikan umpan balik revisi jika diperlukan.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 05 (Teks Kiri, Nomor Kanan) -->
+      <div class="relative z-10 grid grid-cols-12 items-center">
+        <div class="col-span-6 pr-8">
+          <div class="p-8 rounded-2xl bg-surface-dark border border-white/10 hover:border-purple-500/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(139,92,246,0.2)] group">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center font-bold">
+                <span class="material-symbols-outlined">rocket_launch</span>
+              </div>
+              <h3 class="text-xl font-bold text-white group-hover:text-purple-400 transition">Selesai & Launch</h3>
+            </div>
+            <p class="text-neutral-400 text-sm leading-relaxed">
+              Penyerahan berkas master penuh dan peluncuran resmi ke publik dengan garansi pemeliharaan pasca-rilis.
+            </p>
+          </div>
+        </div>
+        <div class="col-span-6 flex justify-end pr-12">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 text-white font-black text-2xl flex items-center justify-center shadow-lg shadow-purple-500/40 ring-4 ring-background-dark transform hover:scale-110 transition">
+            05
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- MOBILE TIMELINE FLOW -->
+    <div class="block lg:hidden relative space-y-8 border-l-2 border-dashed border-rose-500/30 pl-6 ml-4">
+      <!-- Mobile Step 1 -->
+      <div class="relative">
+        <div class="absolute -left-[35px] top-0 w-10 h-10 rounded-full bg-gradient-to-br from-red-500 to-rose-600 text-white font-bold text-sm flex items-center justify-center shadow-md">
+          01
+        </div>
+        <div class="p-6 rounded-xl bg-surface-dark border border-white/10">
+          <h3 class="text-lg font-bold text-white mb-2">Konsultasi & Riset Ide</h3>
+          <p class="text-sm text-neutral-400">Ceritakan ide bisnis dan kebutuhan proyek Anda untuk dianalisis oleh tim.</p>
+        </div>
+      </div>
+
+      <!-- Mobile Step 2 -->
+      <div class="relative">
+        <div class="absolute -left-[35px] top-0 w-10 h-10 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white font-bold text-sm flex items-center justify-center shadow-md">
+          02
+        </div>
+        <div class="p-6 rounded-xl bg-surface-dark border border-white/10">
           <h3 class="text-lg font-bold text-white mb-2">Diskusi & Penawaran</h3>
-          <p class="text-sm text-neutral-400">Tim menganalisis kebutuhan lalu memberikan rincian estimasi solusi dan anggaran.</p>
+          <p class="text-sm text-neutral-400">Penyusunan rincian estimasi biaya, fitur, dan jadwal pengerjaan.</p>
         </div>
       </div>
 
-      <div class="p-6 rounded-xl bg-surface-dark border border-border-dark relative flex flex-col justify-between">
-        <div>
-          <span class="text-3xl font-black text-white/20 block mb-4">03</span>
-          <h3 class="text-lg font-bold text-white mb-2">Development</h3>
-          <p class="text-sm text-neutral-400">Proyek dikerjakan secara intensif berdasarkan fitur dan lingkup kerja yang disepakati.</p>
+      <!-- Mobile Step 3 -->
+      <div class="relative">
+        <div class="absolute -left-[35px] top-0 w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-teal-600 text-white font-bold text-sm flex items-center justify-center shadow-md">
+          03
+        </div>
+        <div class="p-6 rounded-xl bg-surface-dark border border-white/10">
+          <h3 class="text-lg font-bold text-white mb-2">Proses Development</h3>
+          <p class="text-sm text-neutral-400">Pengerjaan intensif proyek dengan standar arsitektur terbaik.</p>
         </div>
       </div>
 
-      <div class="p-6 rounded-xl bg-surface-dark border border-border-dark relative flex flex-col justify-between">
-        <div>
-          <span class="text-3xl font-black text-white/20 block mb-4">04</span>
-          <h3 class="text-lg font-bold text-white mb-2">Review</h3>
-          <p class="text-sm text-neutral-400">Klien melakukan pengujian dan memberikan umpan balik untuk penyempurnaan.</p>
+      <!-- Mobile Step 4 -->
+      <div class="relative">
+        <div class="absolute -left-[35px] top-0 w-10 h-10 rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 text-white font-bold text-sm flex items-center justify-center shadow-md">
+          04
+        </div>
+        <div class="p-6 rounded-xl bg-surface-dark border border-white/10">
+          <h3 class="text-lg font-bold text-white mb-2">Review & Pengujian</h3>
+          <p class="text-sm text-neutral-400">Klien meninjau hasil dan memberikan masukan penyempurnaan.</p>
         </div>
       </div>
 
-      <div class="p-6 rounded-xl bg-surface-dark border border-border-dark relative flex flex-col justify-between">
-        <div>
-          <span class="text-3xl font-black text-white/20 block mb-4">05</span>
+      <!-- Mobile Step 5 -->
+      <div class="relative">
+        <div class="absolute -left-[35px] top-0 w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 text-white font-bold text-sm flex items-center justify-center shadow-md">
+          05
+        </div>
+        <div class="p-6 rounded-xl bg-surface-dark border border-white/10">
           <h3 class="text-lg font-bold text-white mb-2">Selesai & Launch</h3>
-          <p class="text-sm text-neutral-400">Hasil proyek diserahterimakan penuh dan siap digunakan untuk operasional bisnis.</p>
+          <p class="text-sm text-neutral-400">Penyerahan master file dan peluncuran resmi publik.</p>
         </div>
       </div>
     </div>
+
   </div>
 </section>
 
 
-<!-- SECTION 6 — TESTIMONIAL / APA KATA KLIEN KAMI? (NEW) -->
-<section id="testimonials" class="relative bg-background-dark py-16 border-t border-border-dark">
+<!-- SECTION 5 — APA KATA MEREKA / TESTIMONIAL (3D DEPTH CAROUSEL SLIDER MENGANGKAT GAMBAR 2) -->
+<section id="testimonials" class="relative bg-background-dark py-20 border-t border-border-dark overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center max-w-3xl mx-auto mb-16">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neutral-800 bg-neutral-900/60 backdrop-blur mb-4">
-        <span class="w-2 h-2 rounded-full bg-amber-400"></span>
-        <span class="text-xs font-semibold uppercase tracking-wider text-neutral-300">Social Proof</span>
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4 shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        Social Proof & Kepercayaan
       </div>
-      <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
+      <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white mb-4">
         Apa Kata Klien Kami?
       </h2>
       <p class="text-neutral-400 text-lg">
-        Pengalaman nyata dari para pelaku usaha dan profesional yang mempercayakan kebutuhan digitalnya bersama SolusiBersama.
+        Pengalaman nyata dari para pelaku usaha dan profesional yang tumbuh bersama SolusiBersama.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Testimonial 1 -->
-      <div class="p-6 rounded-2xl bg-surface-dark border border-border-dark flex flex-col justify-between space-y-6">
-        <div class="space-y-4">
-          <div class="flex items-center gap-1 text-amber-400">
-            <span class="material-symbols-outlined text-[20px]">star</span>
-            <span class="material-symbols-outlined text-[20px]">star</span>
-            <span class="material-symbols-outlined text-[20px]">star</span>
-            <span class="material-symbols-outlined text-[20px]">star</span>
-            <span class="material-symbols-outlined text-[20px]">star</span>
+    <!-- 3D DEPTH SLIDER CAROUSEL WRAPPER (DESAIN MENGANGKAT GAMBAR 2) -->
+    <div class="relative max-w-5xl mx-auto px-4 py-8">
+
+      <!-- CAROUSEL TRACK -->
+      <div id="testimonial-slider-track" class="relative flex items-center justify-center min-h-[360px] gap-4 md:gap-8">
+
+        <!-- CARD 1 -->
+        <div class="testimonial-card absolute w-full max-w-lg p-8 rounded-3xl bg-[#141414] border border-emerald-500/40 shadow-2xl transition-all duration-500 transform cursor-pointer" data-index="0">
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold uppercase tracking-wide border border-emerald-500/30">#KLIEN 01</span>
+            <div class="flex gap-1 text-amber-400">
+              <span class="material-symbols-outlined text-[18px]">star</span>
+              <span class="material-symbols-outlined text-[18px]">star</span>
+              <span class="material-symbols-outlined text-[18px]">star</span>
+              <span class="material-symbols-outlined text-[18px]">star</span>
+              <span class="material-symbols-outlined text-[18px]">star</span>
+            </div>
           </div>
-          <p class="text-neutral-300 text-sm italic leading-relaxed">
-            "SolusiBersama membantu kami mendapatkan website profesional yang sesuai dengan kebutuhan bisnis. Komunikasi tim sangat responsif dan hasil pengerjaan tepat waktu."
+          <p class="text-white text-base leading-relaxed italic mb-6">
+            "SolusiBersama membantu kami mendapatkan website company profile yang sangat cepat dan sesuai identitas bisnis. Komunikasi tim sangat profesional dan penyelesaian tepat waktu."
           </p>
-        </div>
-        <div class="flex items-center gap-3 pt-4 border-t border-neutral-800">
-          <div class="w-10 h-10 rounded-full bg-neutral-800 border border-neutral-700 flex items-center justify-center font-bold text-white text-sm">
-            BS
+          <div class="flex items-center gap-4 pt-4 border-t border-neutral-800">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-emerald-500 to-teal-400 text-black font-bold flex items-center justify-center text-lg">
+              BS
+            </div>
+            <div>
+              <h4 class="text-white font-bold text-base">Budi Santoso</h4>
+              <span class="text-neutral-400 text-xs">Direktur PT Digital Nusantara (Website)</span>
+            </div>
           </div>
-          <div>
-            <h4 class="text-sm font-bold text-white">Budi Santoso</h4>
-            <span class="text-xs text-neutral-400">Klien Layanan Website</span>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="testimonial-card absolute w-full max-w-lg p-8 rounded-3xl bg-[#141414] border border-blue-500/40 shadow-2xl transition-all duration-500 transform cursor-pointer" data-index="1">
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-wide border border-blue-500/30">#KLIEN 02</span>
+            <div class="flex gap-1 text-amber-400">
+              <span class="material-symbols-outlined text-[18px]">star</span>
+              <span class="material-symbols-outlined text-[18px]">star</span>
+              <span class="material-symbols-outlined text-[18px]">star</span>
+              <span class="material-symbols-outlined text-[18px]">star</span>
+              <span class="material-symbols-outlined text-[18px]">star</span>
+            </div>
+          </div>
+          <p class="text-white text-base leading-relaxed italic mb-6">
+            "Sistem aplikasi internal yang dibuat mempermudah pemantauan tagihan dan pesanan proyek kami secara otomatis. Sangat membantu efisiensi operasional harian tim kami."
+          </p>
+          <div class="flex items-center gap-4 pt-4 border-t border-neutral-800">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-blue-500 to-cyan-400 text-black font-bold flex items-center justify-center text-lg">
+              AR
+            </div>
+            <div>
+              <h4 class="text-white font-bold text-base">Andi Rahmad</h4>
+              <span class="text-neutral-400 text-xs">Founder TechFlow System (Aplikasi Web)</span>
+            </div>
           </div>
         </div>
+
+        <!-- CARD 3 -->
+        <div class="testimonial-card absolute w-full max-w-lg p-8 rounded-3xl bg-[#141414] border border-purple-500/40 shadow-2xl transition-all duration-500 transform cursor-pointer" data-index="2">
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-3 py-1 rounded-full bg-purple-500/20 text-purple-400 text-xs font-bold uppercase tracking-wide border border-purple-500/30">#KLIEN 03</span>
+            <div class="flex gap-1 text-amber-400">
+              <span class="material-symbols-outlined text-[18px]">star</span>
+              <span class="material-symbols-outlined text-[18px]">star</span>
+              <span class="material-symbols-outlined text-[18px]">star</span>
+              <span class="material-symbols-outlined text-[18px]">star</span>
+              <span class="material-symbols-outlined text-[18px]">star</span>
+            </div>
+          </div>
+          <p class="text-white text-base leading-relaxed italic mb-6">
+            "Materi desain branding dan strategi media sosial yang dirancang tim memberikan kesan profesional pada bisnis kami di mata pelanggan. Terjadi peningkatan interaksi yang bagus!"
+          </p>
+          <div class="flex items-center gap-4 pt-4 border-t border-neutral-800">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-purple-500 to-pink-400 text-black font-bold flex items-center justify-center text-lg">
+              DN
+            </div>
+            <div>
+              <h4 class="text-white font-bold text-base">Dian Novita</h4>
+              <span class="text-neutral-400 text-xs">Marketing Lead Brandku (Desain Grafis)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="testimonial-card absolute w-full max-w-lg p-8 rounded-3xl bg-[#141414] border border-amber-500/40 shadow-2xl transition-all duration-500 transform cursor-pointer" data-index="3">
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-wide border border-amber-500/30">#KLIEN 04</span>
+            <div class="flex gap-1 text-amber-400">
+              <span class="material-symbols-outlined text-[18px]">star</span>
+              <span class="material-symbols-outlined text-[18px]">star</span>
+              <span class="material-symbols-outlined text-[18px]">star</span>
+              <span class="material-symbols-outlined text-[18px]">star</span>
+              <span class="material-symbols-outlined text-[18px]">star</span>
+            </div>
+          </div>
+          <p class="text-white text-base leading-relaxed italic mb-6">
+            "Kampanye iklan digital yang dikelola memberikan rasio calon pelanggan baru yang sangat relevan. Tim SolusiBersama sangat membantu eksekusi strategi."
+          </p>
+          <div class="flex items-center gap-4 pt-4 border-t border-neutral-800">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-amber-400 to-rose-400 text-black font-bold flex items-center justify-center text-lg">
+              RP
+            </div>
+            <div>
+              <h4 class="text-white font-bold text-base">Rizky Pratama</h4>
+              <span class="text-neutral-400 text-xs">Owner TokoKita (Digital Marketing)</span>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      <!-- Testimonial 2 -->
-      <div class="p-6 rounded-2xl bg-surface-dark border border-border-dark flex flex-col justify-between space-y-6">
-        <div class="space-y-4">
-          <div class="flex items-center gap-1 text-amber-400">
-            <span class="material-symbols-outlined text-[20px]">star</span>
-            <span class="material-symbols-outlined text-[20px]">star</span>
-            <span class="material-symbols-outlined text-[20px]">star</span>
-            <span class="material-symbols-outlined text-[20px]">star</span>
-            <span class="material-symbols-outlined text-[20px]">star</span>
-          </div>
-          <p class="text-neutral-300 text-sm italic leading-relaxed">
-            "Sistem aplikasi internal yang dibuat mempermudah pemantauan tagihan dan pesanan proyek kami secara otomatis. Sangat membantu operasional harian."
-          </p>
+      <!-- CAROUSEL CONTROLS (NAV PANAH) -->
+      <div class="flex items-center justify-between max-w-md mx-auto mt-12">
+        <button id="testi-prev" class="w-12 h-12 rounded-full bg-neutral-900 border border-white/20 text-white flex items-center justify-center hover:bg-white hover:text-black transition shadow-lg">
+          <span class="material-symbols-outlined">arrow_back</span>
+        </button>
+
+        <!-- DOTS INDICATORS -->
+        <div id="testi-dots" class="flex gap-2">
+          <span class="dot-item w-3 h-3 rounded-full bg-emerald-500 cursor-pointer transition-all"></span>
+          <span class="dot-item w-3 h-3 rounded-full bg-neutral-700 cursor-pointer transition-all"></span>
+          <span class="dot-item w-3 h-3 rounded-full bg-neutral-700 cursor-pointer transition-all"></span>
+          <span class="dot-item w-3 h-3 rounded-full bg-neutral-700 cursor-pointer transition-all"></span>
         </div>
-        <div class="flex items-center gap-3 pt-4 border-t border-neutral-800">
-          <div class="w-10 h-10 rounded-full bg-neutral-800 border border-neutral-700 flex items-center justify-center font-bold text-white text-sm">
-            AR
-          </div>
-          <div>
-            <h4 class="text-sm font-bold text-white">Andi Rahmad</h4>
-            <span class="text-xs text-neutral-400">Klien Layanan Aplikasi</span>
-          </div>
-        </div>
+
+        <button id="testi-next" class="w-12 h-12 rounded-full bg-neutral-900 border border-white/20 text-white flex items-center justify-center hover:bg-white hover:text-black transition shadow-lg">
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </button>
       </div>
 
-      <!-- Testimonial 3 -->
-      <div class="p-6 rounded-2xl bg-surface-dark border border-border-dark flex flex-col justify-between space-y-6">
-        <div class="space-y-4">
-          <div class="flex items-center gap-1 text-amber-400">
-            <span class="material-symbols-outlined text-[20px]">star</span>
-            <span class="material-symbols-outlined text-[20px]">star</span>
-            <span class="material-symbols-outlined text-[20px]">star</span>
-            <span class="material-symbols-outlined text-[20px]">star</span>
-            <span class="material-symbols-outlined text-[20px]">star</span>
-          </div>
-          <p class="text-neutral-300 text-sm italic leading-relaxed">
-            "Materi desain branding dan strategi media sosial yang dirancang tim memberikan kesan profesional pada bisnis kami di mata pelanggan."
-          </p>
-        </div>
-        <div class="flex items-center gap-3 pt-4 border-t border-neutral-800">
-          <div class="w-10 h-10 rounded-full bg-neutral-800 border border-neutral-700 flex items-center justify-center font-bold text-white text-sm">
-            DN
-          </div>
-          <div>
-            <h4 class="text-sm font-bold text-white">Dian Novita</h4>
-            <span class="text-xs text-neutral-400">Klien Desain & Marketing</span>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
 
 
-<!-- SECTION 7 — FAQ ACCORDION (NEW) -->
-<section id="faq" class="relative bg-background-dark py-16 border-t border-border-dark">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neutral-800 bg-neutral-900/60 backdrop-blur mb-4">
-        <span class="w-2 h-2 rounded-full bg-purple-500"></span>
-        <span class="text-xs font-semibold uppercase tracking-wider text-neutral-300">Pertanyaan Umum</span>
+<!-- SECTION 6 — FAQ ACCORDION (DESAIN SPESIFIK MENGANGKAT GAMBAR 3) -->
+<section id="faq" class="relative bg-background-dark py-20 border-t border-border-dark overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+
+      <!-- LEFT COLUMN: TITLE & CALLOUT BOX (MENGANGKAT GAMBAR 3) -->
+      <div class="lg:col-span-5 space-y-8 lg:sticky lg:top-32">
+        <div>
+          <!-- BADGE RED/ROSE -->
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-red-500/30 bg-red-500/10 text-red-400 text-xs font-bold uppercase tracking-wider mb-6 shadow-[0_0_15px_rgba(239,68,68,0.2)]">
+            <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+            Tanya Jawab & Bantuan
+          </div>
+
+          <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight leading-[1.15] mb-4">
+            Pertanyaan yang <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-rose-400 to-pink-500">
+              Sering Diajukan.
+            </span>
+          </h2>
+
+          <p class="text-neutral-400 text-base leading-relaxed">
+            Temukan jawaban cepat seputar alur kerja, penyesuaian desain, garansi teknis, dan prosedur pemesanan layanan di SolusiBersama.
+          </p>
+        </div>
+
+        <!-- VIBRANT CALLOUT CARD (SAMA SEPERTI GAMBAR 3) -->
+        <div class="relative rounded-3xl p-8 bg-gradient-to-br from-red-600 via-rose-700 to-red-900 border border-red-500/40 shadow-2xl shadow-red-900/40 text-white overflow-hidden group">
+          <div class="absolute -right-8 -bottom-8 w-36 h-36 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+
+          <div class="flex items-start gap-4 mb-4">
+            <div class="w-12 h-12 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-white shrink-0 shadow-inner">
+              <span class="material-symbols-outlined text-2xl">support_agent</span>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white">Butuh Bantuan Langsung?</h3>
+              <p class="text-white/80 text-xs font-medium">Tim kami siap merespons cepat</p>
+            </div>
+          </div>
+
+          <p class="text-white/90 text-sm leading-relaxed mb-6">
+            Punya pertanyaan khusus seputar proyek atau rencana kerja sama pada bisnis Anda?
+          </p>
+
+          <a href="#contact"
+            class="w-full py-3.5 px-6 rounded-xl bg-white text-red-700 font-bold hover:bg-neutral-100 transition shadow-lg flex items-center justify-center gap-2 group-hover:translate-x-1 duration-300">
+            <span>Hubungi Tim SolusiBersama</span>
+            <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+          </a>
+        </div>
       </div>
-      <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
-        Pertanyaan yang Sering Ditanyakan
-      </h2>
-      <p class="text-neutral-400 text-lg">
-        Informasi cepat mengenai layanan, alur pengerjaan, dan ketentuan garansi revisi di SolusiBersama.
-      </p>
+
+      <!-- RIGHT COLUMN: NUMBERED ACCORDION STACK (MENGANGKAT GAMBAR 3) -->
+      <div class="lg:col-span-7 space-y-4">
+
+        <!-- ITEM 01 -->
+        <div class="faq-item rounded-2xl bg-[#141414] border border-white/10 hover:border-red-500/40 transition-all duration-300 overflow-hidden shadow-lg">
+          <button class="faq-toggle w-full p-6 text-left flex justify-between items-center text-white font-bold text-base md:text-lg gap-4 group">
+            <div class="flex items-center gap-4">
+              <span class="faq-num w-10 h-10 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-sm font-bold flex items-center justify-center shrink-0">
+                01
+              </span>
+              <span class="group-hover:text-red-400 transition">Apakah desain website bisa disesuaikan dengan kebutuhan bisnis?</span>
+            </div>
+            <span class="material-symbols-outlined faq-icon text-neutral-400 transition-transform duration-300 shrink-0">expand_more</span>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-neutral-300 text-sm leading-relaxed border-t border-neutral-800/80 pt-4 pl-20">
+            Ya. Seluruh tata letak dan struktur visual disesuaikan penuh dengan karakteristik bisnis, target audiens, serta preferensi fungsional proyek Anda.
+          </div>
+        </div>
+
+        <!-- ITEM 02 -->
+        <div class="faq-item rounded-2xl bg-[#141414] border border-white/10 hover:border-red-500/40 transition-all duration-300 overflow-hidden shadow-lg">
+          <button class="faq-toggle w-full p-6 text-left flex justify-between items-center text-white font-bold text-base md:text-lg gap-4 group">
+            <div class="flex items-center gap-4">
+              <span class="faq-num w-10 h-10 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-sm font-bold flex items-center justify-center shrink-0">
+                02
+              </span>
+              <span class="group-hover:text-red-400 transition">Berapa lama proses pengerjaan proyek?</span>
+            </div>
+            <span class="material-symbols-outlined faq-icon text-neutral-400 transition-transform duration-300 shrink-0">expand_more</span>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-neutral-300 text-sm leading-relaxed border-t border-neutral-800/80 pt-4 pl-20">
+            Durasi pengerjaan tergantung jenis layanan. Pembuatan landing page membutuhkan waktu 3-7 hari, sedangkan aplikasi web/sistem custom berkisar 2-4 minggu.
+          </div>
+        </div>
+
+        <!-- ITEM 03 -->
+        <div class="faq-item rounded-2xl bg-[#141414] border border-white/10 hover:border-red-500/40 transition-all duration-300 overflow-hidden shadow-lg">
+          <button class="faq-toggle w-full p-6 text-left flex justify-between items-center text-white font-bold text-base md:text-lg gap-4 group">
+            <div class="flex items-center gap-4">
+              <span class="faq-num w-10 h-10 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-sm font-bold flex items-center justify-center shrink-0">
+                03
+              </span>
+              <span class="group-hover:text-red-400 transition">Apakah bisa membuat website custom?</span>
+            </div>
+            <span class="material-symbols-outlined faq-icon text-neutral-400 transition-transform duration-300 shrink-0">expand_more</span>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-neutral-300 text-sm leading-relaxed border-t border-neutral-800/80 pt-4 pl-20">
+            Tentu saja. Kami berpengalaman menangani berbagai kebutuhan website custom dari awal sesuai kebutuhan arsitektur data bisnis Anda.
+          </div>
+        </div>
+
+        <!-- ITEM 04 -->
+        <div class="faq-item rounded-2xl bg-[#141414] border border-white/10 hover:border-red-500/40 transition-all duration-300 overflow-hidden shadow-lg">
+          <button class="faq-toggle w-full p-6 text-left flex justify-between items-center text-white font-bold text-base md:text-lg gap-4 group">
+            <div class="flex items-center gap-4">
+              <span class="faq-num w-10 h-10 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-sm font-bold flex items-center justify-center shrink-0">
+                04
+              </span>
+              <span class="group-hover:text-red-400 transition">Apakah bisa melakukan revisi hasil pekerjaan?</span>
+            </div>
+            <span class="material-symbols-outlined faq-icon text-neutral-400 transition-transform duration-300 shrink-0">expand_more</span>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-neutral-300 text-sm leading-relaxed border-t border-neutral-800/80 pt-4 pl-20">
+            Ya. Setiap paket layanan mencakup kuota revisi sesuai kesepakatan awal untuk memastikan hasil akhir memenuhi ekspetasi Anda.
+          </div>
+        </div>
+
+        <!-- ITEM 05 -->
+        <div class="faq-item rounded-2xl bg-[#141414] border border-white/10 hover:border-red-500/40 transition-all duration-300 overflow-hidden shadow-lg">
+          <button class="faq-toggle w-full p-6 text-left flex justify-between items-center text-white font-bold text-base md:text-lg gap-4 group">
+            <div class="flex items-center gap-4">
+              <span class="faq-num w-10 h-10 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-sm font-bold flex items-center justify-center shrink-0">
+                05
+              </span>
+              <span class="group-hover:text-red-400 transition">Apakah tersedia dukungan teknis setelah proyek selesai?</span>
+            </div>
+            <span class="material-symbols-outlined faq-icon text-neutral-400 transition-transform duration-300 shrink-0">expand_more</span>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-neutral-300 text-sm leading-relaxed border-t border-neutral-800/80 pt-4 pl-20">
+            Kami memberikan pendampingan dan garansi pemeliharaan teknis pasca-serah terima untuk memastikan sistem Anda berjalan lancar.
+          </div>
+        </div>
+
+        <!-- ITEM 06 -->
+        <div class="faq-item rounded-2xl bg-[#141414] border border-white/10 hover:border-red-500/40 transition-all duration-300 overflow-hidden shadow-lg">
+          <button class="faq-toggle w-full p-6 text-left flex justify-between items-center text-white font-bold text-base md:text-lg gap-4 group">
+            <div class="flex items-center gap-4">
+              <span class="faq-num w-10 h-10 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-sm font-bold flex items-center justify-center shrink-0">
+                06
+              </span>
+              <span class="group-hover:text-red-400 transition">Bagaimana cara memesan layanan?</span>
+            </div>
+            <span class="material-symbols-outlined faq-icon text-neutral-400 transition-transform duration-300 shrink-0">expand_more</span>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-neutral-300 text-sm leading-relaxed border-t border-neutral-800/80 pt-4 pl-20">
+            Anda dapat menekan tombol "Konsultasikan Project" atau "Pesan" pada daftar layanan untuk mengisi formulir pemesanan digital atau langsung menghubungi tim kami via WhatsApp.
+          </div>
+        </div>
+
+      </div>
+
     </div>
 
-    <!-- Accordion Items -->
-    <div class="space-y-4">
-      <div class="faq-item rounded-xl bg-surface-dark border border-border-dark overflow-hidden transition">
-        <button class="faq-toggle w-full p-6 text-left flex justify-between items-center text-white font-semibold hover:bg-neutral-800/40 transition">
-          <span>Apakah desain website bisa disesuaikan dengan kebutuhan bisnis?</span>
-          <span class="material-symbols-outlined faq-icon text-neutral-400 transition-transform duration-300">expand_more</span>
-        </button>
-        <div class="faq-content hidden px-6 pb-6 text-neutral-400 text-sm leading-relaxed border-t border-neutral-800/50 pt-4">
-          Ya. Struktur dan visual website disesuaikan sepenuhnya dengan kebutuhan proyek, target pasar, serta identitas bisnis Anda agar tampil unik dan profesional.
-        </div>
-      </div>
-
-      <div class="faq-item rounded-xl bg-surface-dark border border-border-dark overflow-hidden transition">
-        <button class="faq-toggle w-full p-6 text-left flex justify-between items-center text-white font-semibold hover:bg-neutral-800/40 transition">
-          <span>Berapa lama proses pengerjaan?</span>
-          <span class="material-symbols-outlined faq-icon text-neutral-400 transition-transform duration-300">expand_more</span>
-        </button>
-        <div class="faq-content hidden px-6 pb-6 text-neutral-400 text-sm leading-relaxed border-t border-neutral-800/50 pt-4">
-          Durasi pengerjaan tergantung jenis layanan, jumlah fitur, serta tingkat kompleksitas proyek. Umumnya landing page membutuhkan 3-7 hari, sedangkan aplikasi web/sistem custom berkisar 2-4 minggu.
-        </div>
-      </div>
-
-      <div class="faq-item rounded-xl bg-surface-dark border border-border-dark overflow-hidden transition">
-        <button class="faq-toggle w-full p-6 text-left flex justify-between items-center text-white font-semibold hover:bg-neutral-800/40 transition">
-          <span>Apakah bisa membuat website custom?</span>
-          <span class="material-symbols-outlined faq-icon text-neutral-400 transition-transform duration-300">expand_more</span>
-        </button>
-        <div class="faq-content hidden px-6 pb-6 text-neutral-400 text-sm leading-relaxed border-t border-neutral-800/50 pt-4">
-          Tentu saja. SolusiBersama berpengalaman menangani berbagai kebutuhan website custom, mulai dari portal perusahaan, e-commerce, hingga sistem manajemen internal terintegrasi.
-        </div>
-      </div>
-
-      <div class="faq-item rounded-xl bg-surface-dark border border-border-dark overflow-hidden transition">
-        <button class="faq-toggle w-full p-6 text-left flex justify-between items-center text-white font-semibold hover:bg-neutral-800/40 transition">
-          <span>Apakah bisa melakukan revisi?</span>
-          <span class="material-symbols-outlined faq-icon text-neutral-400 transition-transform duration-300">expand_more</span>
-        </button>
-        <div class="faq-content hidden px-6 pb-6 text-neutral-400 text-sm leading-relaxed border-t border-neutral-800/50 pt-4">
-          Ya. Setiap paket layanan mencakup kuota revisi sesuai kesepakatan awal untuk memastikan hasil akhir memenuhi ekspektasi Anda.
-        </div>
-      </div>
-
-      <div class="faq-item rounded-xl bg-surface-dark border border-border-dark overflow-hidden transition">
-        <button class="faq-toggle w-full p-6 text-left flex justify-between items-center text-white font-semibold hover:bg-neutral-800/40 transition">
-          <span>Apakah tersedia layanan dukungan setelah proyek selesai?</span>
-          <span class="material-symbols-outlined faq-icon text-neutral-400 transition-transform duration-300">expand_more</span>
-        </button>
-        <div class="faq-content hidden px-6 pb-6 text-neutral-400 text-sm leading-relaxed border-t border-neutral-800/50 pt-4">
-          Kami memberikan pendampingan dan garansi pemeliharaan teknis pasca-serah terima untuk memastikan sistem tetap berjalan lancar tanpa kendala.
-        </div>
-      </div>
-
-      <div class="faq-item rounded-xl bg-surface-dark border border-border-dark overflow-hidden transition">
-        <button class="faq-toggle w-full p-6 text-left flex justify-between items-center text-white font-semibold hover:bg-neutral-800/40 transition">
-          <span>Bagaimana cara memesan layanan?</span>
-          <span class="material-symbols-outlined faq-icon text-neutral-400 transition-transform duration-300">expand_more</span>
-        </button>
-        <div class="faq-content hidden px-6 pb-6 text-neutral-400 text-sm leading-relaxed border-t border-neutral-800/50 pt-4">
-          Anda dapat menekan tombol "Konsultasikan Project" atau "Pesan" pada daftar layanan untuk mengisi formulir pemesanan digital atau langsung menghubungi tim kami via WhatsApp.
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
 
-<!-- SECTION 8 — CTA UTAMA (NEW) -->
+<!-- SECTION 7 — CTA UTAMA -->
 <section id="cta-primary" class="relative bg-background-dark py-20 border-t border-border-dark overflow-hidden">
   <div class="absolute inset-0 pointer-events-none">
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[700px] aspect-square bg-white/5 rounded-full blur-[140px]"></div>
@@ -887,7 +1063,7 @@
 </section>
 
 
-<!-- SECTION 9 — CONTACT EXISTING -->
+<!-- SECTION 8 — CONTACT EXISTING -->
 <section id="contact" class="relative bg-background-dark py-14 border-t border-border-dark overflow-hidden">
   <div class="absolute inset-0 pointer-events-none">
     <div class="absolute -top-32 -left-32 w-[40%] h-[40%] bg-white/5 rounded-full blur-[120px]"></div>
@@ -1024,7 +1200,7 @@
 </section>
 
 
-<!-- SECTION 10 — FOOTER EXISTING (WITH DIRECT SERVICE LINKS) -->
+<!-- FOOTER -->
 <footer class="bg-background-dark border-t border-border-dark pt-20 pb-10">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
@@ -1062,8 +1238,8 @@
           <li><a href="#" class="hover:text-white transition">Beranda</a></li>
           <li><a href="#about" class="hover:text-white transition">Tentang Kami</a></li>
           <li><a href="#services" class="hover:text-white transition">Layanan</a></li>
-          <li><a href="#case-studies" class="hover:text-white transition">Studi Kasus</a></li>
           <li><a href="#process" class="hover:text-white transition">Cara Kerja</a></li>
+          <li><a href="#testimonials" class="hover:text-white transition">Testimonial</a></li>
           <li><a href="#faq" class="hover:text-white transition">FAQ</a></li>
           <li><a href="#contact" class="hover:text-white transition">Kontak</a></li>
         </ul>
